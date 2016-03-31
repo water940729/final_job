@@ -13,7 +13,7 @@ class CreateCbeRecordTable extends Migration
     public function up()
     {
         Schema::create('cbeRecord', function (Blueprint $table) {
-#            $table->increments('id');
+			$table->increments('id');
 
 			$table->char("cbeNo",11);
 			$table->bigInteger("cbeLoginTime");

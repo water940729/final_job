@@ -13,7 +13,7 @@ class CreateAdminRecordTable extends Migration
     public function up()
     {
         Schema::create('adminRecord', function (Blueprint $table) {
-#            $table->increments('id');
+			$table->increments('id');
 
 			$table->char("cbeAdminId",20);
 			$table->bigInteger("cbeAdminLogintime");

@@ -24,6 +24,7 @@ class CreateCbeTable extends Migration
 			$table->char("cbeLogistics",10)->nullable();
 			$table->char("cbePay",10)->nullable();
 		 	$table->char("cbeMail",20);
+			$table->string("phone",20);
 			$table->bigInteger("cbeTime");
             $table->timestamps();
         });
