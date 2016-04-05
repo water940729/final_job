@@ -15,7 +15,7 @@ class CreateCbeRecordTable extends Migration
         Schema::create('cbeRecord', function (Blueprint $table) {
 			$table->increments('id');
 
-			$table->char("cbeNo",11);
+			$table->integer("cbe_id");
 			$table->bigInteger("cbeLoginTime");
 			$table->char("cbeLoginIP",20);
             $table->timestamps();

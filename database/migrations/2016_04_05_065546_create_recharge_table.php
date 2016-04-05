@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAccountTable extends Migration
+class CreateRechargeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,15 +12,15 @@ class CreateAccountTable extends Migration
      */
     public function up()
     {
-        Schema::create('account', function (Blueprint $table) {
-			$table->increments('id');
- 
+        Schema::create('recharge', function (Blueprint $table) {
+            //
+			$table->increments("id");
 			$table->integer("cbe_id");
-			$table->integer("type");
-			$table->integer("account_id");
+			$table->integer("pay_id");
+			$table->char("num",20);
 			$table->integer("state");
-			$table->integer("num");
 			$table->bigInteger("time");
+			$table->float("money");
 			$table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateAccountTable extends Migration
      */
     public function down()
     {
-        Schema::drop('account');
+        Schema::drop('recharge');
     }
 }

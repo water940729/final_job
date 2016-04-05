@@ -13,13 +13,14 @@ class CreateOrderTable extends Migration
     public function up()
     {
         Schema::create('order', function (Blueprint $table) {
-#            $table->increments('id');
-			$table->char("cbeCode",40);
-			$table->char("cbeName",100);
-			$table->char("cbeBookNum",20)->primary();
-			$table->integer("cbeBookState");
-			$table->bigInteger("cbeBookTime");
-			$table->char("cbeLogCh");
+			$table->increments('id');
+			$table->integer("cbe_id");
+			$table->char("num",20);
+			$table->integer("state");
+			$table->bigInteger("time");
+			$table->float("money");
+			$table->integer("pay_id");
+			$table->char("log_id",10);
             $table->timestamps();
         });
     }

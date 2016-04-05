@@ -15,7 +15,7 @@ class CreateAdminRecordTable extends Migration
         Schema::create('adminRecord', function (Blueprint $table) {
 			$table->increments('id');
 
-			$table->char("cbeAdminId",20);
+			$table->integer("cbeAdminId");
 			$table->bigInteger("cbeAdminLogintime");
 			$table->char("cbeAdminLoginIP",20);
             $table->timestamps();
