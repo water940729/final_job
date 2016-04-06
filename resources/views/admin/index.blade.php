@@ -2,15 +2,15 @@
 <html>
     <head>
         <meta charset="utf-8">
-/*        <link href="{{URL::asset('/')}}css/public.css" type="text/css" rel="stylesheet">
-        <link href="{{URL::asset('/')}}css/houtai.css" type="text/css" rel="stylesheet">
-        <link href="{{URL::asset('/')}}css/smartMenu.css" type="text/css" rel="stylesheet">*/
+        <link href="../assets/admin.css" type="text/css" rel="stylesheet">
+        <link href="{{asset('css/houtai.css')}}" type="text/css" rel="stylesheet">
+        <link href="{{URL::asset('/')}}css/smartMenu.css" type="text/css" rel="stylesheet">
         <title>校友网</title>
     </head>
     <body>
     	<div id="admin">
     		<div class="ad-menu" id="ad-menu">
-                <div class="ad-logo"><img src="image/m-logo.png" height="103" width="130"></div>
+                <div class="ad-logo"><img src="{{asset('image/m-logo.png')}}" height="103" width="130"></div>
                 <div class="ad-list">
                     <ul>
                         <li>
