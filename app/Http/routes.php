@@ -15,7 +15,9 @@
 //    return view('welcome');
 //});
 
-Route::get("admin","AdminController@index");
+Route::get("admin",[
+		'middleware'=>'admin.checkLogin','uses'=>"AdminController@index"
+		]);
 /*
 |--------------------------------------------------------------------------
 | Application Routes

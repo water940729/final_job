@@ -2,15 +2,15 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link href="../assets/admin.css" type="text/css" rel="stylesheet">
-        <link href="{{asset('css/houtai.css')}}" type="text/css" rel="stylesheet">
-        <link href="{{URL::asset('/')}}css/smartMenu.css" type="text/css" rel="stylesheet">
+        <link href="css/public.css" type="text/css" rel="stylesheet">
+        <link href="css/houtai.css" type="text/css" rel="stylesheet">
+        <link href="css/smartMenu.css" type="text/css" rel="stylesheet">
         <title>校友网</title>
     </head>
     <body>
     	<div id="admin">
     		<div class="ad-menu" id="ad-menu">
-                <div class="ad-logo"><img src="{{asset('image/m-logo.png')}}" height="103" width="130"></div>
+                <div class="ad-logo"><img src="image/m-logo.png" height="103" width="130"></div>
                 <div class="ad-list">
                     <ul>
                         <li>
@@ -208,7 +208,7 @@
     		<div class="ad-comment-box" id="ad-comment">
                 <div class="ad-top-comment">
                     <div class="ad-message">
-                        <div class="ad-top-left">
+                        <!--<div class="ad-top-left">
                             <div class="ad-change-btn"><a id="ad-list" href="javascript:;" class="scm ad-list-btn"></a></div>
                             <div class="ad-search-box clear">
                                 <div class="ad-search-sel">
@@ -225,7 +225,9 @@
                                 </div>
                             </div>
                         </div>
+						-->
                         <div class="ad-top-right">
+						<!--
                             <div class="ad-notice">
                                 <ul>
                                     <li>
@@ -239,6 +241,7 @@
                                     </li>
                                 </ul>
                             </div>
+							-->
                             <div class="ad-welcom">
                                 <div class="ad-wel-img"><img src="image/min_logo.png" height="36" width="36"></div>
                                 <div class="ad-wel-text">
@@ -270,9 +273,11 @@
                         <a href="javascript:;" class="scm jian-a next j_tabBg J_tabRight"></a>
                     </div>
                 </div>
+				<!--
                 <div class="ad-main-comment J_mainContent" id="ad-iframe">
                     <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v0.html" frameborder="0" data-id="index_v0.html" seamless></iframe>
                 </div>
+				-->
     		</div>
     	</div>
         <script type="text/javascript" src="js/jquery.min.js"></script>
