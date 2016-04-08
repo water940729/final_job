@@ -17,7 +17,7 @@ class CreateCbeTable extends Migration
 			$table->char("cbeName",10)->unique();
 			$table->char("cbeCode",10)->nullable();
 			$table->char("cbeNo",11)->unique();
-			$table->char("cbeAccount",10)->unique();
+			$table->char("cbeAccount",20)->unique();
 			$table->float("cbeBalance")->default(0.0);
 			$table->char("cbePass",40);
 			$table->char("cbeChoice",1)->nullable();

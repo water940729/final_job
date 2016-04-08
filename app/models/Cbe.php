@@ -1,6 +1,6 @@
 <?php
 
-namespace App\.\models;
+namespace App\models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -14,9 +14,12 @@ class Cbe extends Model
 	/*
 	   检查用户名是否已注册
 	*/
-	private function has_add(Request $request){
+	private function has_add($request){
+		($request->email);
 		try{
-			$cbe=Cbe::where("cbeAccount","$request->cbeAccount")
+			$cbe=Cbe::where('cbeAccount',$request->email)
+				->orWhere('cbeNo',$request->no)
+				->orWhere('cbeName',$request->name)
 				->findOrFail(1);
 		}catch(ModelNotFoundException $e){
 			return -1;
@@ -29,18 +32,28 @@ class Cbe extends Model
 	 *创建成功返回1
 	 *失败返回-1
 	 */
-	public function add(Request $request)
+	public function createUser($request)
 	{
+		//dd($request->phone);
 		$cbe=new Cbe;
-		if(this->has_add($request)===-1){
+
+		if(($rs=$this->has_add($request))===1){
 			return -1;
 		}
-		$cbe->cbeAccount=$request->cbeAccount;
-		$cbe->cbePass=$request->cbePass;
-		$cbe->phone=$request->phone;
-		$cbe->cbeName=$request->cbeName;
-		$cbe->cbeTime=time();
-		$cbe->save();
+		$this->cbeAccount=$request->email;
+		$this->cbePass=$request->password;
+		$this->phone=$request->phone;
+		$this->cbeNo=$request->no;
+		$this->cbeName=$request->name;
+		$this->cbeTime=time();
+		try{
+			$res=$this->save();
+
+		}catch(ModelNotFoundException $e){
+			return -1;
+
+		}
+
 		return 1;
 	}
 

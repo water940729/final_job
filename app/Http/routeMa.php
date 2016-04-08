@@ -13,3 +13,8 @@ Route::get('/users/register', function () {
 Route::get('/',function(){
     return view('users/login');
 });
+//Route::get('users/registe',function(){
+//   echo "1";
+//});
+Route::post('/users/regist',"CbeController@registe");
+//Route::post('users/regist')
