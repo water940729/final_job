@@ -90,12 +90,12 @@
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 form-box">
 
-                    <form role="form" action="" method="post" class="registration-form">
+                    <form role="form" action="regist" method="post" class="registration-form">
 
                         <fieldset>
                             <div class="form-top">
                                 <div class="form-top-left">
-                                    <h3>Step 1 / 3</h3>
+                                    <h3>Step 1 / 2</h3>
                                     {{--<p>Tell us who you are:</p>--}}
                                     <p>公司信息填写</p>
                                 </div>
@@ -106,15 +106,15 @@
                             <div class="form-bottom">
                                 <div class="form-group">
                                     <label class="sr-only" for="form-first-name" >公司名称</label>
-                                    <input type="text" name="form-first-name" placeholder="请填写公司名称" class="form-first-name form-control" id="name ">
+                                    <input type="text" name="name" placeholder="请填写公司名称" class="form-first-name form-control" id="name ">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="form-last-name">公司编号</label>
-                                    <input type="text" name="form-last-name" placeholder="请填写公司编号" class="form-last-name form-control" id="no">
+                                    <input type="text" name="no" placeholder="请填写公司编号" class="form-last-name form-control" id="no">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="form-about-yourself">手机号</label>
-                                    <input type="text" name="form-last-name" placeholder="请填写联系人手机号" class="form-last-name form-control" id="phone">
+                                    <input type="text" name="phone" placeholder="请填写联系人手机号" class="form-last-name form-control" id="phone">
                                 </div>
                                 <button type="button" class="btn btn-next">下一步</button>
                             </div>
@@ -122,8 +122,8 @@
 
                         <fieldset>
                             <div class="form-top">
-                                <div class="form-top-left">WW
-                                    <h3>Step 2 / 3</h3>
+                                <div class="form-top-left">
+                                    <h3>Step 2 / 2</h3>
                                     <p>设置你的登陆账号</p>
                                 </div>
                                 <div class="form-top-right">
@@ -133,15 +133,15 @@
                             <div class="form-bottom">
                                 <div class="form-group">
                                     <label class="sr-only" for="form-email">用户名</label>
-                                    <input type="text" name="form-email" placeholder="Email将作为您的登陆账号，请真实填写" class="form-email form-control" id="email">
+                                    <input type="text" name="email" placeholder="Email将作为您的登陆账号，请真实填写" class="form-email form-control" id="email">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="form-password">Password</label>
-                                    <input type="password" name="form-password" placeholder="请输入密码" class="form-password form-control" id="password">
+                                    <input type="password" name="password" placeholder="请输入密码" class="form-password form-control" id="password">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="form-repeat-password">Repeat password</label>
-                                    <input type="password" name="form-repeat-password" placeholder="确认密码"
+                                    <input type="password" name="repeat-password" placeholder="确认密码"
                                            class="form-repeat-password form-control" id="repeat-password">
                                 </div>
                                 <button type="button" class="btn btn-previous">上一步</button>
@@ -149,33 +149,6 @@
                             </div>
                         </fieldset>
 
-                        <fieldset>
-                            <div class="form-top">
-                                <div class="form-top-left">
-                                    <h3>Step 3 / 3</h3>
-                                    <p>Social media profiles:</p>
-                                </div>
-                                <div class="form-top-right">
-                                    <i class="fa fa-twitter"></i>
-                                </div>
-                            </div>
-                            <div class="form-bottom">
-                                <div class="form-group">
-                                    <label class="sr-only" for="form-facebook">Facebook</label>
-                                    <input type="text" name="form-facebook" placeholder="Facebook..." class="form-facebook form-control" id="form-facebook">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="form-twitter">Twitter</label>
-                                    <input type="text" name="form-twitter" placeholder="Twitter..." class="form-twitter form-control" id="form-twitter">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="form-google-plus">Google plus</label>
-                                    <input type="text" name="form-google-plus" placeholder="Google plus..." class="form-google-plus form-control" id="form-google-plus">
-                                </div>
-                                <button type="button" class="btn btn-previous">Previous</button>
-                                <button type="submit" class="btn">Sign me up!</button>
-                            </div>
-                        </fieldset>
 
                     </form>
 
