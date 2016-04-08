@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\models\CbeAdmin;
+use Illuminate\Support\Facades\Session;
 
 class AdminIndexController extends Controller
 {
@@ -21,15 +22,21 @@ class AdminIndexController extends Controller
 	*/
 	public function login(Request $request){
 	//	print_r($request);
+
 		$cbeAdmin=new CbeAdmin();
 		switch($request->input("optionsRadios")){
 			case "admin":
-				if($cbeAdmin->verify($request)===1){
+				$result=$cbeAdmin->verify($request);
+				if($result!==-1){
+				//	print_r($request->session());
+					Session::set("admin_id",$result[0]->cbeAdminId);
 					return redirect("admin");
 				}
 				break;
+			case "user":
+				break;
 		}
-		echo $request->input("form-password");
+		return -1;
 	}
 
 }

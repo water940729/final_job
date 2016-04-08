@@ -9,10 +9,10 @@
 Route::get('/users/register', function () {
     return view('users/register');
 });
-
-Route::get('/',function(){
+Route::get('/', function () {
     return view('users/login');
 });
+
 //Route::get('users/registe',function(){
 //   echo "1";
 //});

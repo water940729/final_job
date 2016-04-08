@@ -2,6 +2,7 @@
 
 namespace App\models;
 
+use DB;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -18,17 +19,11 @@ class CbeAdmin extends Model
 	public function verify(Request $request)
 	{
 		try{
-			echo $request->input("form-email");
-			$cbeAdmin=CbeAdmin::where("cbeAdminAccount",$request->input('form-email'))
-			//	->where("cbeAdminPass","'".md5($request->input('form-password'))."'")
-				->findOrFail(1);
-				//->find();
-			echo "11";
+			$cbeAdmin=DB::select("select cbeAdminId from cbeAdmin where cbeAdminAccount=? and cbeAdminPass=?",[$request->form_email,md5($request->form_password)]);
 		}catch(ModelNotFoundException $e){
-			echo "11";
 			return -1;
 		}
-		return 1;
+		return $cbeAdmin;
 	}
 	
 	/*

@@ -21,6 +21,8 @@ class CbeController extends Controller{
      */
 
     public function registe(Request $request){
+		
+        $cbe =new Cbe();
         $data = $request->all();
         $val = $this->val($data);
         $message = $val->errors()->all();

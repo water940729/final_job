@@ -147,11 +147,11 @@
                             <div class="form-bottom">
                                 <div class="form-group">
                                     <label class="sr-only" for="form-email">请输入用户名</label>
-                                    <input type="text" name="form-email" placeholder="请输入用户名" class="form-email form-control" id="form-email">
+                                    <input type="text" name="form_email" placeholder="请输入用户名" class="form-email form-control" id="form-email">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="form-password">Password</label>
-                                    <input type="password" name="form-password" placeholder="请输入密码" class="form-password form-control" id="form-password">
+                                    <input type="password" name="form_password" placeholder="请输入密码" class="form-password form-control" id="form-password">
                                 </div>
 								<input type="hidden" name="login-type" value=""/>
                                 <button type="button" class="btn btn-previous">上一步</button>

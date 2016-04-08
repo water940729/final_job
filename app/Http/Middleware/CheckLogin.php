@@ -18,7 +18,7 @@ class CheckLogin
     public function handle(Request $request, Closure $next)
     {
 		
-		if(!Session::has("admin_id")){
+		if(Session::has("admin_id")===-1){
 			return redirect("adminindex");
 		}
         return $next($request);

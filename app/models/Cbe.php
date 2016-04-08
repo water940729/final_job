@@ -11,6 +11,11 @@ class Cbe extends Model
 	protected $table="cbe";
 	public $timestamps=false;
 
+	public function __construct(){
+		print_r(Cbe::all()->toArray());
+		echo "11";
+	}
+
 	/*
 	   检查用户名是否已注册
 	*/
