@@ -1,5 +1,5 @@
 <?php
-
+include"routeMa.php";
 /*
 |--------------------------------------------------------------------------
 | Routes File
@@ -17,6 +17,12 @@
 
 Route::get("admin",[
 		'middleware'=>'admin.checkLogin','uses'=>"AdminController@index"
+		]);
+Route::get("adminindex",[
+		"uses"=>"AdminIndexController@index"
+		]);
+Route::post("adminlogin",[
+		"uses"=>"AdminIndexController@login"
 		]);
 /*
 |--------------------------------------------------------------------------
