@@ -13,7 +13,8 @@ class AdminIndexController extends Controller
 	/*
 	   登录页面
 	*/
-	public function index(){
+	public function index(Request $request){
+
 		return view("adminIndex.index");
 	}
 
@@ -28,15 +29,21 @@ class AdminIndexController extends Controller
 			case "admin":
 				$result=$cbeAdmin->verify($request);
 				if($result!==-1){
-				//	print_r($request->session());
-					Session::set("admin_id",$result[0]->cbeAdminId);
-					return redirect("admin");
+					$request->session()->put("admin_id",$result->cbeAdminId);
+					//return redirect("admin");
+					return array("status"=>1,"href"=>"admin");
 				}
 				break;
 			case "user":
 				break;
 		}
-		return -1;
+//		return $request->input("optionsRadios");
+		return array("status"=>-1,"href"=>"帐号密码错误");
 	}
 
+	public function logout(Request $request){
+		$request->session()->flush();
+		return redirect("admin");
+//		print_r($request->session()->has("admin_id"));
+	}
 }

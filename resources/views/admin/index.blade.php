@@ -246,7 +246,7 @@
                                 <div class="ad-wel-img"><img src="image/min_logo.png" height="36" width="36"></div>
                                 <div class="ad-wel-text">
                                     <div class="font-wel">欢迎您！<strong>李春华</strong></div>
-                                    <div class="font-wel"><a href="javascript:;"><strong>【退出】</strong></a></div>
+                                    <div class="font-wel"><a href="adminlogout"><strong>【退出】</strong></a></div>
                                 </div>
                             </div>
                         </div>

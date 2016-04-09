@@ -19,11 +19,15 @@ class CbeAdmin extends Model
 	public function verify(Request $request)
 	{
 		try{
-			$cbeAdmin=DB::select("select cbeAdminId from cbeAdmin where cbeAdminAccount=? and cbeAdminPass=?",[$request->form_email,md5($request->form_password)]);
+			//$cbeAdmin=DB::select("select cbeAdminId from cbeAdmin where cbeAdminAccount=? and cbeAdminPass=?",[$request->form_email,md5($request->form_password)]);
+			$result=self::where("cbeAdminAccount",$request->form_email)
+				->where("cbeAdminPass",md5($request->form_password))
+				->firstOrFail();
 		}catch(ModelNotFoundException $e){
 			return -1;
 		}
-		return $cbeAdmin;
+		//return $cbeAdmin;
+		return $result;
 	}
 	
 	/*
@@ -43,4 +47,11 @@ class CbeAdmin extends Model
 		return 1;
 	}
 
+//	public function test(Request $request){
+//
+//		$result=self::where("cbeAdminAccount","water")
+//			->where("cbeAdminPass",md5("940729"))
+//			->firstOrFail();
+//		echo $result->cbeAdminId;
+//	}
 }

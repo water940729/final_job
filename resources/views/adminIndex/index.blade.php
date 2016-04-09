@@ -155,7 +155,7 @@
                                 </div>
 								<input type="hidden" name="login-type" value=""/>
                                 <button type="button" class="btn btn-previous">上一步</button>
-                                <button type="submit" class="btn" >登陆</button>
+                                <button type="submit" class="btn" id="login">登陆</button>
                             </div>
                         </fieldset>
 
@@ -180,6 +180,7 @@
 <script src="assets/js/jquery.backstretch.min.js"></script>
 <script src="assets/js/retina-1.1.0.min.js"></script>
 <script src="assets/js/scripts.js"></script>
+<script src="assets/js/login.js"></script>
 
 <!--[if lt IE 10]>
 <script src="{{asset('assets/js/placeholder.js')}}"></script>

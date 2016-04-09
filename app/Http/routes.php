@@ -24,6 +24,9 @@ Route::get("adminindex",[
 Route::post("adminlogin",[
 		"uses"=>"AdminIndexController@login"
 		]);
+Route::get("adminlogout",[
+		"uses"=>"AdminIndexController@logout"
+		]);
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -37,4 +40,17 @@ Route::post("adminlogin",[
 
 Route::group(['middleware' => ['web']], function () {
     //
+	
+Route::get("admin",[
+		'middleware'=>'admin.checkLogin','uses'=>"AdminController@index"
+		]);
+Route::get("adminindex",[
+		"uses"=>"AdminIndexController@index"
+		]);
+Route::post("adminlogin",[
+		"uses"=>"AdminIndexController@login"
+		]);
+Route::get("adminlogout",[
+		"uses"=>"AdminIndexController@logout"
+		]);
 });
