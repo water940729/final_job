@@ -27,6 +27,34 @@ Route::post("adminlogin",[
 Route::get("adminlogout",[
 		"uses"=>"AdminIndexController@logout"
 		]);
+Route::get("adminhomepage",[
+		"uses"=>"AdminController@homepage"
+		]);
+
+Route::get("adminresetpass",[
+		"uses"=>"AdminController@resetpass"
+		]);
+
+Route::post("admindoresetpass",[		
+		"uses"=>"AdminController@doreset"
+		]);
+Route::get("adminmanagecbe",[
+		"uses"=>"AdminController@managecbe"
+		]);
+Route::get("adminaddcbe",[
+		"uses"=>"AdminController@addcbe"
+		]);
+
+Route::post("admindoaddcbe",[
+		"uses"=>"AdminController@doaddcbe"
+		]);
+Route::get("adminpayment",[
+		"uses"=>"PaymentController@show"
+		]);
+/*测试用的路由*/
+Route::get("test",[
+		"uses"=>"AdminIndexController@test"
+		]);
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -52,5 +80,32 @@ Route::post("adminlogin",[
 		]);
 Route::get("adminlogout",[
 		"uses"=>"AdminIndexController@logout"
+		]);
+Route::get("adminhomepage",[
+		"uses"=>"AdminController@homepage"
+		]);
+
+Route::get("adminresetpass",[
+		"uses"=>"AdminController@resetpass"
+		]);
+Route::post("admindoresetpass",[		
+		"uses"=>"AdminController@doreset"
+		]);
+
+Route::get("adminmanagecbe",[
+		"uses"=>"AdminController@managecbe"
+		]);
+Route::get("adminaddcbe",[
+		"uses"=>"AdminController@addcbe"
+		]);
+Route::post("admindoaddcbe",[
+		"uses"=>"AdminController@doaddcbe"
+		]);
+
+Route::get("adminpayment",[
+		"uses"=>"PaymentController@show"
+		]);
+Route::get("test",[
+		"uses"=>"AdminIndexController@test"
 		]);
 });

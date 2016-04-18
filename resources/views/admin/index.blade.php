@@ -14,45 +14,25 @@
                 <div class="ad-list">
                     <ul>
                         <li>
-                            <div class="li-item"><em class="scm li-ico ic1"></em>首页管理<span class="scm arrow"></span></div>
+                            <div class="li-item"><em class="scm li-ico ic1"></em>管理员帐号管理<span class="scm arrow"></span></div>
                             <dl>
                                 <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
+                                    <a href="#" class="dd-item">密码重置<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="index_v1.html" data-index="1">测试用例一</li>
-                                        <li class="J_menuItem" href="index_v2.html" data-index="2">测试用例二</li>
-                                        <li class="J_menuItem" href="index_v3.html" data-index="3">测试用例三</li>
-                                        <li class="J_menuItem" href="index_v4.html" data-index="4">测试用例四</li>
-                                        <li class="J_menuItem" href="index_v5.html" data-index="5">测试用例五</li>
-                                        <li class="J_menuItem" href="index_v6.html" data-index="6">测试用例六</li>
-                                        <li class="J_menuItem" href="index_v7.html" data-index="7">测试用例七</li>
-                                        <li class="J_menuItem" href="index_v8.html" data-index="8">测试用例八</li>
-                                        <li class="J_menuItem" href="index_v9.html" data-index="9">测试用例九</li>
-                                        <li class="J_menuItem" href="index_v10.html" data-index="10">测试用例十</li>
-                                        <li class="J_menuItem" href="index_v11.html" data-index="11">测试用例十一</li>
-                                        <li class="J_menuItem" href="index_v12.html" data-index="12">测试用例十二</li>
+                                        <li class="J_menuItem" href="adminresetpass" data-index="3">密码重置</li>
                                     </ul>
                                 </dd>
                                 <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
+                                    <a href="#" class="dd-item">帐号管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="index_v1.html" data-index="1">测试用例一</li>
-                                        <li class="J_menuItem" href="index_v2.html" data-index="2">测试用例二</li>
-                                        <li class="J_menuItem" href="index_v3.html" data-index="3">测试用例三</li>
-                                        <li class="J_menuItem" href="index_v4.html" data-index="4">测试用例四</li>
-                                        <li class="J_menuItem" href="index_v5.html" data-index="5">测试用例五</li>
-                                        <li class="J_menuItem" href="index_v6.html" data-index="6">测试用例六</li>
-                                        <li class="J_menuItem" href="index_v7.html" data-index="7">测试用例七</li>
-                                        <li class="J_menuItem" href="index_v8.html" data-index="8">测试用例八</li>
-                                        <li class="J_menuItem" href="index_v9.html" data-index="9">测试用例九</li>
-                                        <li class="J_menuItem" href="index_v10.html" data-index="10">测试用例十</li>
-                                        <li class="J_menuItem" href="index_v11.html" data-index="11">测试用例十一</li>
+                                        <li class="J_menuItem" href="adminmanagecbe" data-index="1">查看帐号</li>
+                                        <li class="J_menuItem" href="adminaddcbe" data-index="2">添加帐号</li>
                                     </ul>
                                 </dd>
                             </dl>
                         </li>
                         <li>
-                            <div class="li-item"><em class="scm li-ico ic2"></em>校友管理<span class="scm arrow"></span></div>
+                            <div class="li-item"><em class="scm li-ico ic2"></em>企业信息管理<span class="scm arrow"></span></div>
                             <dl>
                                 <dd>
                                     <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
@@ -72,7 +52,7 @@
                             </dl>
                         </li>
                         <li>
-                            <div class="li-item"><em class="scm li-ico ic3"></em>组织管理<span class="scm arrow"></span></div>
+                            <div class="li-item"><em class="scm li-ico ic3"></em>订单管理<span class="scm arrow"></span></div>
                             <dl>
                                 <dd>
                                     <a href="#" class="dd-item">校友高级管理<span class="scm dd-ar"></span></a>
@@ -159,7 +139,7 @@
                             </dl>
                         </li>
                         <li>
-                            <div class="li-item"><em class="scm li-ico ic4"></em>社区管理<span class="scm arrow"></span></div>
+                            <div class="li-item"><em class="scm li-ico ic4"></em>支付管理<span class="scm arrow"></span></div>
                             <dl>
                                 <dd>
                                     <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
@@ -170,29 +150,7 @@
                             </dl>
                         </li>
                         <li>
-                            <div class="li-item"><em class="scm li-ico ic5"></em>捐赠管理<span class="scm arrow"></span></div>
-                            <dl>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                            </dl>
-                        </li>
-                        <li>
-                            <div class="li-item"><em class="scm li-ico ic6"></em>统计管理<span class="scm arrow"></span></div>
-                            <dl>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                            </dl>
-                        </li>
-                        <li>
-                            <div class="li-item"><em class="scm li-ico ic7"></em>系统管理<span class="scm arrow"></span></div>
+                            <div class="li-item"><em class="scm li-ico ic5"></em>物流管理<span class="scm arrow"></span></div>
                             <dl>
                                 <dd>
                                     <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
@@ -273,11 +231,9 @@
                         <a href="javascript:;" class="scm jian-a next j_tabBg J_tabRight"></a>
                     </div>
                 </div>
-				<!--
                 <div class="ad-main-comment J_mainContent" id="ad-iframe">
-                    <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="index_v0.html" frameborder="0" data-id="index_v0.html" seamless></iframe>
+                    <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="adminhomepage" frameborder="0" data-id="index_v0.html" seamless></iframe>
                 </div>
-				-->
     		</div>
     	</div>
         <script type="text/javascript" src="js/jquery.min.js"></script>

@@ -16,6 +16,8 @@ class CreateAdminRecordTable extends Migration
 			$table->increments('id');
 
 			$table->integer("cbeAdminId");
+			$table->bigInteger("cbeAdminLoginLasttime");
+			$table->char("cbeAdminLoginLastIP",20);
 			$table->bigInteger("cbeAdminLogintime");
 			$table->char("cbeAdminLoginIP",20);
             $table->timestamps();

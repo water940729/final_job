@@ -34,18 +34,59 @@ class CbeAdmin extends Model
 	   密码重置
 	*/
 
-	public function reset_pass(Request $request)
+	public function reset_pass(Request $request,$id)
 	{
 		try{
-			$cbeAdmin=CbeAdmin::where("cbeAdminAccount","$request->cbeAdminAccount")
-				->find(1);
-			$cbe->cbeAdminPass=$request->cbeAdminPass;
-			$cbe->save();
+			$cbeAdmin=self::where("cbeAdminId","$id")->update(["cbeAdminPass"=>md5($request->input("password"))]);
 		}catch(Exception $e){
 			return -1;
 		}
 		return 1;
 	}
+
+	/*
+	   cur当前第几页
+	*/
+	public function managecbe(Request $request,$cur=0)
+	{
+		//return self::all("cbeAdminId");
+		$tip=10;
+		return self::skip($cur*$tip)
+			->take($tip)
+			->get(array("cbeAdminId","cbeAdminAccount","cbeAdminPhone","cbeAdminMail"));
+	}
+
+	/*
+	   添加帐号
+	*/
+	public function addcbe(Request $request)
+	{
+		if($this->has_add($request)==1){
+			return -1;
+		}
+		$cbeAdmin=new CbeAdmin;
+		$cbeAdmin->cbeAdminAccount=$request->input("account");
+		$cbeAdmin->cbeAdminPass=$request->input("password");
+		$cbeAdmin->cbeAdminPhone=$request->input("phone");
+		$cbeAdmin->cbeAdminMail=$request->input("email");
+		$cbeAdmin->save();
+		return 1;
+	}
+	
+	/*
+	   帐号是否已经使用
+	 */
+	private function has_add(Request $request)
+	{
+		try{
+			self::where("cbeAdminAccount",$request->input("account"))
+				->firstOrFail();
+		}catch(ModelNotFoundException $e){
+			return -1;
+		}
+		return 1;
+	}
+
 
 //	public function test(Request $request){
 //

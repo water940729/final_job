@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\models\CbeAdmin;
+use App\models\AdminRecord;
 use Illuminate\Support\Facades\Session;
 
 class AdminIndexController extends Controller
@@ -31,6 +32,9 @@ class AdminIndexController extends Controller
 				if($result!==-1){
 					$request->session()->put("admin_id",$result->cbeAdminId);
 					//return redirect("admin");
+					
+					$adminRecord=new AdminRecord();
+					$adminRecord->crecord($request);
 					return array("status"=>1,"href"=>"admin");
 				}
 				break;
@@ -45,5 +49,9 @@ class AdminIndexController extends Controller
 		$request->session()->flush();
 		return redirect("admin");
 //		print_r($request->session()->has("admin_id"));
+	}
+
+	public function test(Request $request){
+		echo $request->ip();
 	}
 }
