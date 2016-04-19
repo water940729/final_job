@@ -2,16 +2,19 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
+use Closure;
 
-class EncryptCookies extends BaseEncrypter
+class Encryptcookies
 {
     /**
-     * The names of the cookies that should not be encrypted.
+     * Handle an incoming request.
      *
-     * @var array
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @return mixed
      */
-    protected $except = [
-        //
-    ];
+    public function handle($request, Closure $next)
+    {
+        return $next($request);
+    }
 }

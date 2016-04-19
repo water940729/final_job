@@ -72,7 +72,7 @@ class Cbe extends Model
 		try{
 			$result=Cbe::where("cbeAccount",$request->form_email)
 				->where("cbePass",md5($request->form_password))
-				->andWhere('isalive','0')
+				->where('isalive','0')
 				//->get();
 			->firstOrFail();
 
