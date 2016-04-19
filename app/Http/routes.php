@@ -51,6 +51,15 @@ Route::post("admindoaddcbe",[
 Route::get("adminpayment",[
 		"uses"=>"PaymentController@show"
 		]);
+Route::get("adminpayinstall",[
+		"uses"=>"PaymentController@install"
+		]);
+Route::post("adminpaydoinstall",[
+		"uses"=>"PaymentController@doinstall"
+		]);
+Route::get("adminpayuninstall",[
+		"uses"=>"PaymentController@uninstall"
+		]);
 /*测试用的路由*/
 Route::get("test",[
 		"uses"=>"AdminIndexController@test"
@@ -104,6 +113,15 @@ Route::post("admindoaddcbe",[
 
 Route::get("adminpayment",[
 		"uses"=>"PaymentController@show"
+		]);
+Route::get("adminpayinstall",[
+		"uses"=>"PaymentController@install"
+		]);
+Route::post("adminpaydoinstall",[
+		"uses"=>"PaymentController@doinstall"
+		]);
+Route::get("adminpayuninstall",[
+		"uses"=>"PaymentController@uninstall"
 		]);
 Route::get("test",[
 		"uses"=>"AdminIndexController@test"

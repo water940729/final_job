@@ -37,18 +37,6 @@
                                 <dd>
                                     <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
                                 </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
                             </dl>
                         </li>
                         <li>
@@ -58,83 +46,25 @@
                                     <a href="#" class="dd-item">校友高级管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
                                         <li class="J_menuItem" href="index_v1.html" data-index="1">测试用例一</li>
-                                        <li class="J_menuItem" href="index_v2.html" data-index="2">测试用例二</li>
-                                        <li class="J_menuItem" href="index_v3.html" data-index="3">测试用例三</li>
-                                        <li class="J_menuItem" href="index_v4.html" data-index="4">测试用例四</li>
-                                        <li class="J_menuItem" href="index_v5.html" data-index="5">测试用例五</li>
-                                        <li class="J_menuItem" href="index_v6.html" data-index="6">测试用例六</li>
-                                        <li class="J_menuItem" href="index_v7.html" data-index="7">测试用例七</li>
-                                        <li class="J_menuItem" href="index_v8.html" data-index="8">测试用例八</li>
-                                        <li class="J_menuItem" href="index_v9.html" data-index="9">测试用例九</li>
-                                        <li class="J_menuItem" href="index_v10.html" data-index="10">测试用例十</li>
-                                        <li class="J_menuItem" href="index_v11.html" data-index="11">测试用例十一</li>
                                     </ul>
                                 </dd>
                                 <dd>
                                     <a href="#" class="dd-item">校友查询<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
                                         <li class="J_menuItem" href="index_v1.html" data-index="1">测试用例一</li>
-                                        <li class="J_menuItem" href="index_v2.html" data-index="2">测试用例二</li>
-                                        <li class="J_menuItem" href="index_v3.html" data-index="3">测试用例三</li>
-                                        <li class="J_menuItem" href="index_v4.html" data-index="4">测试用例四</li>
-                                        <li class="J_menuItem" href="index_v5.html" data-index="5">测试用例五</li>
-                                        <li class="J_menuItem" href="index_v6.html" data-index="6">测试用例六</li>
-                                        <li class="J_menuItem" href="index_v7.html" data-index="7">测试用例七</li>
-                                        <li class="J_menuItem" href="index_v8.html" data-index="8">测试用例八</li>
-                                        <li class="J_menuItem" href="index_v9.html" data-index="9">测试用例九</li>
-                                        <li class="J_menuItem" href="index_v10.html" data-index="10">测试用例十</li>
-                                        <li class="J_menuItem" href="index_v11.html" data-index="11">测试用例十一</li>
                                     </ul>
                                 </dd>
                                 <dd>
                                     <a href="#" class="dd-item">校友搜索<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
                                         <li class="J_menuItem" href="index_v1.html" data-index="1">测试用例一</li>
-                                        <li class="J_menuItem" href="index_v2.html" data-index="2">测试用例二</li>
-                                        <li class="J_menuItem" href="index_v3.html" data-index="3">测试用例三</li>
-                                        <li class="J_menuItem" href="index_v4.html" data-index="4">测试用例四</li>
-                                        <li class="J_menuItem" href="index_v5.html" data-index="5">测试用例五</li>
-                                        <li class="J_menuItem" href="index_v6.html" data-index="6">测试用例六</li>
-                                        <li class="J_menuItem" href="index_v7.html" data-index="7">测试用例七</li>
-                                        <li class="J_menuItem" href="index_v8.html" data-index="8">测试用例八</li>
-                                        <li class="J_menuItem" href="index_v9.html" data-index="9">测试用例九</li>
-                                        <li class="J_menuItem" href="index_v10.html" data-index="10">测试用例十</li>
-                                        <li class="J_menuItem" href="index_v11.html" data-index="11">测试用例十一</li>
                                     </ul>
                                 </dd>
                                 <dd>
                                     <a href="#" class="dd-item">校友高输入<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
                                         <li class="J_menuItem" href="index_v1.html" data-index="1">测试用例一</li>
-                                        <li class="J_menuItem" href="index_v2.html" data-index="2">测试用例二</li>
-                                        <li class="J_menuItem" href="index_v3.html" data-index="3">测试用例三</li>
-                                        <li class="J_menuItem" href="index_v4.html" data-index="4">测试用例四</li>
-                                        <li class="J_menuItem" href="index_v5.html" data-index="5">测试用例五</li>
-                                        <li class="J_menuItem" href="index_v6.html" data-index="6">测试用例六</li>
-                                        <li class="J_menuItem" href="index_v7.html" data-index="7">测试用例七</li>
-                                        <li class="J_menuItem" href="index_v8.html" data-index="8">测试用例八</li>
-                                        <li class="J_menuItem" href="index_v9.html" data-index="9">测试用例九</li>
-                                        <li class="J_menuItem" href="index_v10.html" data-index="10">测试用例十</li>
-                                        <li class="J_menuItem" href="index_v11.html" data-index="11">测试用例十一</li>
                                     </ul>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
                                 </dd>
                             </dl>
                         </li>
@@ -142,10 +72,10 @@
                             <div class="li-item"><em class="scm li-ico ic4"></em>支付管理<span class="scm arrow"></span></div>
                             <dl>
                                 <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
+                                    <a href="#" class="dd-item">支付列表<span class="scm dd-ar"></span></a>
+                                    <ul class="ad-item-list">
+                                        <li class="J_menuItem" href="adminpayment" data-index="1">支付列表</li>
+									</ul>
                                 </dd>
                             </dl>
                         </li>
@@ -166,40 +96,7 @@
     		<div class="ad-comment-box" id="ad-comment">
                 <div class="ad-top-comment">
                     <div class="ad-message">
-                        <!--<div class="ad-top-left">
-                            <div class="ad-change-btn"><a id="ad-list" href="javascript:;" class="scm ad-list-btn"></a></div>
-                            <div class="ad-search-box clear">
-                                <div class="ad-search-sel">
-                                    <select>
-                                        <option>新闻类</option>
-                                        <option>新闻吩咐道类</option>
-                                        <option>新闻广告费类</option>
-                                        <option>新闻苟富贵类</option>
-                                    </select>
-                                </div>
-                                <div class="ad-search-cha">
-                                    <input type="text" class="ad-search-input" placeholder="请输入你要查找的内容">
-                                    <input type="submit" class="scm ad-search-btn" value=""> 
-                                </div>
-                            </div>
-                        </div>
-						-->
                         <div class="ad-top-right">
-						<!--
-                            <div class="ad-notice">
-                                <ul>
-                                    <li>
-                                        <a href="javascript:;" class="scm nt1"><span class="scm nt-count dot">12</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;" class="scm nt2"><span class="scm nt-count dot">12</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;" class="scm nt3"><span class="scm nt-count dot">12</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-							-->
                             <div class="ad-welcom">
                                 <div class="ad-wel-img"><img src="image/min_logo.png" height="36" width="36"></div>
                                 <div class="ad-wel-text">

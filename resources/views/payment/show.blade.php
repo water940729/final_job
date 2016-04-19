@@ -34,12 +34,18 @@
 		<tbody>
 			@foreach($result as $th)
 			<tr>
-				<td>{{html_entity_decode($th['name'])}}</td>
-				<td>{{$th['desc']}}</td>
+				<td><?php echo $th["name"];?></td>
+				<td width="40%"><?php echo $th['desc'];?></td>
 				<td>{{$th['version']}}</td>
 				<td>{{$th['author']}}</td>
 				<td>{{$th['pay_fee']}}</td>
-				<td></td>
+				<td>
+					@if($th["install"]==0)
+						<a href="adminpayinstall?code={{$th['code']}}">安装</a>
+					@else
+						<a href="adminpayuninstall?code={{$th['code']}}">卸载</a>
+					@endif
+				</td>
 			</tr>
 			@endforeach
 		</tbody>

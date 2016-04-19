@@ -18,7 +18,7 @@ class CreatePayTable extends Migration
 			$table->char("pay_code",10);
 			$table->char("pay_name",30);
 			$table->float("pay_fee");
-			$table->char("pay_desc",50)->nullable();
+			$table->text("pay_desc")->nullable();
 			$table->char("pay_config",50);
             $table->timestamps();
         });
