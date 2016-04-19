@@ -16,7 +16,7 @@ class AdminIndexController extends Controller
 	*/
 	public function index(Request $request){
 
-		return view("adminIndex.index");
+		return view("adminIndex/index");
 	}
 
 	/*
@@ -26,6 +26,7 @@ class AdminIndexController extends Controller
 	//	print_r($request);
 
 		$cbeAdmin=new CbeAdmin();
+		$cbe = new Cbe();
 		switch($request->input("optionsRadios")){
 			case "admin":
 				$result=$cbeAdmin->verify($request);
@@ -39,6 +40,13 @@ class AdminIndexController extends Controller
 				}
 				break;
 			case "user":
+				$result=$cbe->verify($request);
+				if($result!==-1){
+					$request->session()->put("admin_id",$result->id);
+					$request->session()->save();
+					//return redirect("admin");
+					return array("status"=>1,"href"=>"users");
+				}
 				break;
 		}
 //		return $request->input("optionsRadios");

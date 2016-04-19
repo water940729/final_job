@@ -90,7 +90,7 @@
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 form-box">
 
-                    <form role="form" action="regist" method="post" class="registration-form">
+                    <form role="form" action="regist" method="post" class="registration-form" id="registration-form">
 
                         <fieldset>
                             <div class="form-top">
@@ -106,7 +106,7 @@
                             <div class="form-bottom">
                                 <div class="form-group">
                                     <label class="sr-only" for="form-first-name" >公司名称</label>
-                                    <input type="text" name="name" placeholder="请填写公司名称" class="form-first-name form-control" id="name ">
+                                    <input type="text" name="name" placeholder="请填写公司名称" class="form-first-name form-control" id="name">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="form-last-name">公司编号</label>
@@ -145,7 +145,7 @@
                                            class="form-repeat-password form-control" id="repeat-password">
                                 </div>
                                 <button type="button" class="btn btn-previous">上一步</button>
-                                <button type="submit" class="btn">注册</button>
+                                <button type="button" class="btn" id="register">注册</button>
                             </div>
                         </fieldset>
 
@@ -166,6 +166,7 @@
 <script src="../assets/js/jquery.backstretch.min.js"></script>
 <script src="../assets/js/retina-1.1.0.min.js"></script>
 <script src="../assets/js/scripts.js"></script>
+<script src="../assets/js/login.js"></script>
 
 <!--[if lt IE 10]>
 <script src="../assets/js/placeholder.js"></script>

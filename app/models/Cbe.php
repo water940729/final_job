@@ -12,15 +12,12 @@ class Cbe extends Model
 	public $timestamps=false;
 
 	public function __construct(){
-		print_r(Cbe::all()->toArray());
-		echo "11";
 	}
 
 	/*
 	   检查用户名是否已注册
 	*/
 	private function has_add($request){
-		($request->email);
 		try{
 			$cbe=Cbe::where('cbeAccount',$request->email)
 				->orWhere('cbeNo',$request->no)
@@ -39,14 +36,13 @@ class Cbe extends Model
 	 */
 	public function createUser($request)
 	{
-		//dd($request->phone);
 		$cbe=new Cbe;
 
 		if(($rs=$this->has_add($request))===1){
 			return -1;
 		}
 		$this->cbeAccount=$request->email;
-		$this->cbePass=$request->password;
+		$this->cbePass=md5($request->password);
 		$this->phone=$request->phone;
 		$this->cbeNo=$request->no;
 		$this->cbeName=$request->name;
@@ -58,24 +54,33 @@ class Cbe extends Model
 			return -1;
 
 		}
-
-		return 1;
+		if($res){
+			return $this->id;
+		}else{
+			return -1;
+		}
 	}
 
 	/*
 	   登录时验证
 	*/
-	public function verify(Request $request)
+	public function verify($request)
 	{
+
+		//dd($request->all());
+		//dd(Cbe::where('cbeAccount',$request->form_email)->get()->toArray());
 		try{
-			$cbe=Cbe::where("cbeAccount","$request->cbeAccount")
-				->where("cbePass","$request->cbePass)")
-				->where("isalive","1")
-				->findOrFail(1);
+			$result=Cbe::where("cbeAccount",$request->form_email)
+				->where("cbePass",md5($request->form_password))
+				->where('isalive','0')
+				//->get();
+			->firstOrFail();
+
+				//->firstOrFail(1);
 		}catch(ModelNotFoundException $e){
 			return -1;
 		}
-		return 1;
+		return $result;
 	}
 
 
