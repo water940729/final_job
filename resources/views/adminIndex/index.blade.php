@@ -102,7 +102,7 @@
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3 form-box">
 
-                    <form role="form" action="adminlogin" method="post" class="registration-form">
+                    <form role="form" action="adminlogin" method="post" class="registration-form" id="registration-form">
 
                         <fieldset>
                             <div class="form-top">
@@ -120,10 +120,10 @@
 
                                     <label class="sr-only" for="form-last-name">请选择登陆身份</label>
                                     <label  class=" col-md-4">
-                                        <input type="radio" name="optionsRadios" class="" id="optionsRadios1" value="user" checked>企业用户
+                                        <input type="radio" name="optionsRadios" class="" id="optionsRadios1" value="user" >企业用户
                                     </label>
                                     <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="admin" > 后台管理员
+                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="admin" checked> 后台管理员
                                     </label>
 
                                 </div>
