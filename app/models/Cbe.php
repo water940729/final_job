@@ -2,6 +2,7 @@
 
 namespace App\models;
 
+use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
@@ -115,6 +116,19 @@ class Cbe extends Model
 			return -1;
 		}
 		return 1;
+	}
+
+	/*
+	   查看所有商家信息
+	*/
+	public function show(Request $request,$cur=0)
+	{
+		$tip=10;
+		$result=self::orderBy("id","desc")->
+			skip($cur*$tip)->
+			take($tip)->
+			get(["id","cbeName","cbeNo","cbeAccount"]);
+		return $result;
 	}
 
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\models\CbeAdmin;
+use App\models\Cbe;
 use App\models\AdminRecord;
 use Illuminate\Support\Facades\Session;
 

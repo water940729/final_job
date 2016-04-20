@@ -60,6 +60,12 @@ Route::post("adminpaydoinstall",[
 Route::get("adminpayuninstall",[
 		"uses"=>"PaymentController@uninstall"
 		]);
+Route::get("adminmanagecbe",[
+		"uses"=>"AdminCbeController@manage"
+		]);
+Route::get("adminshowcbe",[
+		"uses"=>"AdminCbeController@show"
+		]);
 /*测试用的路由*/
 Route::get("test",[
 		"uses"=>"AdminIndexController@test"
@@ -101,7 +107,7 @@ Route::post("admindoresetpass",[
 		"uses"=>"AdminController@doreset"
 		]);
 
-Route::get("adminmanagecbe",[
+Route::get("adminmanage",[
 		"uses"=>"AdminController@managecbe"
 		]);
 Route::get("adminaddcbe",[
@@ -122,6 +128,12 @@ Route::post("adminpaydoinstall",[
 		]);
 Route::get("adminpayuninstall",[
 		"uses"=>"PaymentController@uninstall"
+		]);
+Route::get("adminmanagecbe",[
+		"uses"=>"AdminCbeController@manage"
+		]);
+Route::get("adminshowcbe",[
+		"uses"=>"AdminCbeController@show"
 		]);
 Route::get("test",[
 		"uses"=>"AdminIndexController@test"

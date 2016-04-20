@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Session;
 use App\Http\Requests;
 //use App\Http\Requests\AdminPassResetRequest;
 use Validator;
+use App\models\Cbe;
 use App\models\CbeAdmin;
 use App\models\AdminRecord;
 

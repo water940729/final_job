@@ -25,7 +25,7 @@
                                 <dd>
                                     <a href="#" class="dd-item">帐号管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="adminmanagecbe" data-index="1">查看帐号</li>
+                                        <li class="J_menuItem" href="adminmanage" data-index="1">查看帐号</li>
                                         <li class="J_menuItem" href="adminaddcbe" data-index="2">添加帐号</li>
                                     </ul>
                                 </dd>
@@ -35,7 +35,10 @@
                             <div class="li-item"><em class="scm li-ico ic2"></em>企业信息管理<span class="scm arrow"></span></div>
                             <dl>
                                 <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
+                                    <a href="#" class="dd-item">企业信息列表<span class="scm dd-ar"></span></a>
+										<ul class="ad-item-list">
+											<li class="J_menuItem" href="adminmanagecbe" data-index="1">企业信息管理</li>
+										</ul>
                                 </dd>
                             </dl>
                         </li>
@@ -100,7 +103,7 @@
                             <div class="ad-welcom">
                                 <div class="ad-wel-img"><img src="image/min_logo.png" height="36" width="36"></div>
                                 <div class="ad-wel-text">
-                                    <div class="font-wel">欢迎您！<strong>李春华</strong></div>
+                                    <div class="font-wel">欢迎您！<strong></strong></div>
                                     <div class="font-wel"><a href="adminlogout"><strong>【退出】</strong></a></div>
                                 </div>
                             </div>
