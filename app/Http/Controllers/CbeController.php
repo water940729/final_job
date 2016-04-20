@@ -6,7 +6,7 @@
  * Time: 11:32
  */
 namespace App\Http\Controllers;
-use App\Models\Cbe;
+use App\models\Cbe;
 use App\models\CbeAdmin;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
@@ -31,7 +31,7 @@ class CbeController extends Controller{
 //        dd($message);
 //        dd($this->test($data['phone']));
         if(!empty($message)){
-            $errmsg=array('errno'=>315,'errmsg'=>'请正确输入参数');
+            $errmsg=array('errno'=>315,'errmsg'=>$val->errors()->all()[0]);
             return $errmsg;
         }
         if($data['password']!=$data['repeat-password']){

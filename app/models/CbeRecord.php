@@ -14,8 +14,12 @@ class CbeRecord extends Model
 	//根据cbe_id查询
 	public function grecord($id)
 	{
-		$result=self::where("cbe_Id",$id)
-			->get(["cbeLoginTime","cbeLoginIP"]);
+		try{
+			$result=self::where("cbe_Id",$id)
+				->firstOrFail();
+		}catch(ModelNotFoundException $e){
+			return null;
+		}
 		return $result;
 	}
 }

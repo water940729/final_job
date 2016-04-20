@@ -16,16 +16,17 @@ class AdminCbeController extends Controller
 		//echo "1";
 		
 		$cbe=new Cbe();
-		//print_r($cbe->show($request));
 		$result=$cbe->show($request);
 		$cbeRecord=new CbeRecord();
 		foreach ($result as $key=>$th)
 		{
 			$temp=$cbeRecord->grecord($th['id']);
-			$result[$key]["cbeLoginTime"]=date("Y-m-d h:i:s",$temp[0]->cbeLoginTime);
-			$result[$key]["cbeLoginIP"]=$temp[0]->cbeLoginIP;
+			if($temp!=null){
+				$result[$key]["cbeLoginTime"]=date("Y-m-d h:i:s",$temp->cbeLoginTime);
+				$result[$key]["cbeLoginIP"]=$temp->cbeLoginIP;
+			}
 		}
-	//	print_r($result);
+//		print_r($result);
 		return view("adminCbe.manage",["result"=>$result]);
 	}
 
@@ -42,6 +43,31 @@ class AdminCbeController extends Controller
 			$result[$key]["cbeLoginTime"]=date("Y-m-d h:i:s",$temp[0]->cbeLoginTime);
 			$result[$key]["cbeLoginIP"]=$temp[0]->cbeLoginIP;
 		}
-		return view("adminCbe.show",["result"=>$result]);
+		//return view("adminCbe.show",["result"=>$result]);
+		return $result;
+	}
+	//查看商家详情页面
+	public function info(Request $request)
+	{
+		$cbe=new Cbe();
+		print_r($cbe->info($request->input("id")));
+//		return view("adminCbe.info");
+	}
+
+
+	//激活商家
+	public function active(Request $request)
+	{
+		$cbe=new Cbe();
+		$cbe->active($request->input("id"));
+		return 1;
+	}
+
+	//注销商家
+	public function del(Request $request)
+	{
+		$cbe=new Cbe();
+		$cbe->del($request->input("id"));
+		return 1;
 	}
 }

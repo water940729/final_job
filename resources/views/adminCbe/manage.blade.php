@@ -13,13 +13,29 @@
 	<link rel="stylesheet" type="text/css" media="screen" href="css/managecbe.css" />
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script>
+
 		$(document).on("mousewheel DOMMouseScroll", function (e) {
-			alert($("#content").attr("value"));
+//			alert($("#content").attr("value"));
 			var cur=$("#content").attr("value");
 			cur=parseInt(cur)+1;
 			$("#content").attr("value",cur);
-			$("#content").load("adminshowcbe?cur="+cur+" #travel");
+			//$("#content").load("adminshowcbe?cur="+cur+" #travel");
+			$.ajax({
+				method:"GET",
+				data:"cur="+cur,
+				url:"adminshowcbe",
+				success:function(msg){
+					alert(msg);
+				}
+			});
 		});
+	
+//	$(function(){
+//			alert("11");
+//		window.onscroll=function(){
+//			alert("11");
+//		}
+//	});
 	</script>
 	</head>
 
@@ -39,6 +55,7 @@
 				<th scope="col">商家编号</th>
 				<th scope="col">上次登录IP</th>
 				<th scope="col">上次登录时间</th>
+				<th scope="col">操作</th>
 			</tr>        
 		</thead>
 		
@@ -48,8 +65,27 @@
 				<th scope="row">{{$th->cbeAccount}}</th>
 				<td>{{$th->cbeName}}</td>
 				<td>{{$th->cbeNo}}</td>
-				<td>{{$th->cbeLoginIP}}</td>
-				<td>{{$th->cbeLoginTime}}</td>
+				<td>
+					@if ($th->cbeLoginIP)
+					{{$th->cbeLoginIP}}
+					@else
+					未登录
+					@endif</td>
+				<td>
+					@if($th->cbeLoginTime)
+						{{$th->cbeLoginTime}}
+					@else
+						未登录
+					@endif
+				</td>
+				<td>
+					<a href="admininfocbe?id={{$th->id}}">详情</a>
+					@if($th->isalive==0)
+						<a href="adminactcbe?id={{$th->id}}">激活</a>
+					@else
+						<a href="admindelcbe?id={{$th->id}}">注销</a>
+					@endif
+				</td>
 			</tr>
 			@endforeach
 		</tbody>

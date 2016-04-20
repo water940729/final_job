@@ -66,6 +66,15 @@ Route::get("adminmanagecbe",[
 Route::get("adminshowcbe",[
 		"uses"=>"AdminCbeController@show"
 		]);
+Route::get("admininfocbe",[
+		"uses"=>"AdminCbeController@info"
+		]);
+Route::get("adminactcbe",[
+		"uses"=>"AdminCbeController@active"
+		]);
+Route::get("admindelcbe",[
+		"uses"=>"AdminCbeController@del"
+		]);
 /*测试用的路由*/
 Route::get("test",[
 		"uses"=>"AdminIndexController@test"
@@ -134,6 +143,15 @@ Route::get("adminmanagecbe",[
 		]);
 Route::get("adminshowcbe",[
 		"uses"=>"AdminCbeController@show"
+		]);
+Route::get("admininfocbe",[
+		"uses"=>"AdminCbeController@info"
+		]);
+Route::get("adminactcbe",[
+		"uses"=>"AdminCbeController@active"
+		]);
+Route::get("admindelcbe",[
+		"uses"=>"AdminCbeController@del"
 		]);
 Route::get("test",[
 		"uses"=>"AdminIndexController@test"

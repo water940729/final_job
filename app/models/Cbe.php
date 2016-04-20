@@ -20,7 +20,7 @@ class Cbe extends Model
 	*/
 	private function has_add($request){
 		try{
-			$cbe=Cbe::where('cbeAccount',$request->email)
+			$cbe=self::where('cbeAccount',$request->email)
 				->orWhere('cbeNo',$request->no)
 				->orWhere('cbeName',$request->name)
 				->findOrFail(1);
@@ -105,12 +105,27 @@ class Cbe extends Model
 	/*
 	   删除账号
 	*/
-	public function drop(Request $request)
+	public function del($id)
 	{
 		try{
-			$cbe=Cbe::where("cbeAccount","$request->cbeAccount")
-				->find(1);
+			$cbe=self::where("id",$id)
+				->first();
 			$cbe->isalive=0;
+			$cbe->save();
+		}catch(Exception $e){
+			return -1;
+		}
+		return 1;
+	}
+	/*
+	   激活
+	*/
+	public function active($id)
+	{
+		try{
+			$cbe=self::where("id",$id)
+				->first();
+			$cbe->isalive=1;
 			$cbe->save();
 		}catch(Exception $e){
 			return -1;
@@ -123,12 +138,18 @@ class Cbe extends Model
 	*/
 	public function show(Request $request,$cur=0)
 	{
-		$tip=10;
+		$tip=1;
+		
 		$result=self::orderBy("id","desc")->
-			skip($cur*$tip)->
-			take($tip)->
-			get(["id","cbeName","cbeNo","cbeAccount"]);
+			get(["id","cbeName","cbeNo","cbeAccount","isalive"]);
 		return $result;
 	}
 
+	/*
+	   根据id查看商家信息
+	*/
+	public function info($id)
+	{
+		return self::where("id",$id)->first();
+	}
 }
