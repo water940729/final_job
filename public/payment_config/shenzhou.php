@@ -61,6 +61,12 @@ if (isset($set_modules) && $set_modules == true)
 
 class shenzhou
 {
+
+    function __construct()
+    {
+        $this->shenzhou();
+    }
+    
     /**
      * 构造函数
      *
@@ -72,11 +78,6 @@ class shenzhou
 
     function shenzhou()
     {
-    }
-
-    function __construct()
-    {
-        $this->shenzhou();
     }
 
    /**

@@ -64,6 +64,11 @@ if (isset($set_modules) && $set_modules == TRUE)
 class epay
 {
 
+    function __construct()
+    {
+        $this->epay();
+    }
+
     /**
      * 构造函数
      *
@@ -74,11 +79,6 @@ class epay
      */
     function epay()
     {
-    }
-
-    function __construct()
-    {
-        $this->epay();
     }
 
     /**
