@@ -50,8 +50,7 @@ class AdminCbeController extends Controller
 	public function info(Request $request)
 	{
 		$cbe=new Cbe();
-		print_r($cbe->info($request->input("id")));
-//		return view("adminCbe.info");
+		return view("adminCbe.info",["result"=>$cbe->info($request->input("id"))]);
 	}
 
 

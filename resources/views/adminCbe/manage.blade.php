@@ -14,21 +14,21 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script>
 
-		$(document).on("mousewheel DOMMouseScroll", function (e) {
-//			alert($("#content").attr("value"));
-			var cur=$("#content").attr("value");
-			cur=parseInt(cur)+1;
-			$("#content").attr("value",cur);
-			//$("#content").load("adminshowcbe?cur="+cur+" #travel");
-			$.ajax({
-				method:"GET",
-				data:"cur="+cur,
-				url:"adminshowcbe",
-				success:function(msg){
-					alert(msg);
-				}
-			});
-		});
+//		$(document).on("mousewheel DOMMouseScroll", function (e) {
+////			alert($("#content").attr("value"));
+//			var cur=$("#content").attr("value");
+//			cur=parseInt(cur)+1;
+//			$("#content").attr("value",cur);
+//			//$("#content").load("adminshowcbe?cur="+cur+" #travel");
+//			$.ajax({
+//				method:"GET",
+//				data:"cur="+cur,
+//				url:"adminshowcbe",
+//				success:function(msg){
+//					alert(msg);
+//				}
+//			});
+//		});
 	
 //	$(function(){
 //			alert("11");
