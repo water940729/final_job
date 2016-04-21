@@ -66,6 +66,12 @@ if (isset($set_modules) && $set_modules == TRUE)
  */
 class chinabank
 {
+
+    function __construct()
+    {
+        $this->chinabank();
+    }
+    
     /**
      * 构造函数
      *
@@ -76,11 +82,6 @@ class chinabank
      */
     function chinabank()
     {
-    }
-
-    function __construct()
-    {
-        $this->chinabank();
     }
 
     /**
