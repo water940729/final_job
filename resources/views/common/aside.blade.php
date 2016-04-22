@@ -85,7 +85,7 @@
                     </a>
                     <ul class="submenu bg-palette5">
                         <li><a href="rechargePage"><span class="submenu-label">账户充值</span></a></li>
-                        <li><a href="form_validation.html"><span class="submenu-label">消费记录</span></a></li>
+                        <li><a href="history"><span class="submenu-label">消费记录</span></a></li>
                         {{--<li><a href="dropzone.html"><span class="submenu-label">Dropzone</span></a></li>--}}
                     </ul>
                 </li>

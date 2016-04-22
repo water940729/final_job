@@ -42,35 +42,65 @@
                 <tr>
                     <td>11111111</td>
                     <td>2016-4-12</td>
-                    <td>支付宝</td>
+                    <td>
+                        <select class="btn-info" name="type">
+                            <option value="0">支付宝</option>
+                            {{--<option value="1">微信支付</option>--}}
+                            {{--<option value="2">银行卡</option>--}}
+                        </select>
+                    </td>
                     <td>￥20</td>
                     <td>充值成功</td>
                 </tr>
                 <tr>
                     <td>22222222</td>
                     <td>2016-4-12</td>
-                    <td>银行卡</td>
+                    <td>
+                        <select class="btn-info" name="type">
+                            {{--<option value="0">支付宝</option>--}}
+                            <option value="1">微信支付</option>
+                            {{--<option value="2">银行卡</option>--}}
+                        </select>
+                    </td>
                     <td>￥20</td>
                     <td>充值成功</td>
                 </tr>
                 <tr>
                     <td>33333333</td>
                     <td>2016-4-12</td>
-                    <td>支付宝</td>
+                    <td>
+                        <select class="btn-info" name="type">
+                            <option value="0">支付宝</option>
+                            {{--<option value="1">微信支付</option>--}}
+                            {{--<option value="2">银行卡</option>--}}
+                        </select>
+                    </td>
                     <td>￥20</td>
                     <td>充值成功</td>
                 </tr>
                 <tr>
                     <td>44444444</td>
                     <td>2016-4-12</td>
-                    <td>支付宝</td>
+                    <td>
+                        <select class="btn-info" name="type">
+                            {{--<option value="0">支付宝</option>--}}
+                            {{--<option value="1">微信支付</option>--}}
+                            <option value="2">银行卡</option>
+                        </select>
+                    </td>                    
                     <td>￥20</td>
                     <td>充值成功</td>
                 </tr>
                 <tr>
                     <td>55555555</td>
                     <td>2016-4-12</td>
-                    <td>微信支付</td>
+                    <td>
+                        <select class="btn-info" name="type">
+                            {{--<option value="0">支付宝</option>--}}
+                            <option value="1">微信支付</option>
+                            {{--<option value="2">银行卡</option>--}}
+                        </select>
+                    </td>
                     <td>￥20</td>
                     <td>充值成功</td>
                 </tr>

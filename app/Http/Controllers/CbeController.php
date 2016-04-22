@@ -186,4 +186,15 @@ class CbeController extends Controller{
         }
     }
 
+    public function history(Request $request){
+        if(!$request->session()->has('userId')){
+            return view('user/login');
+        }else{
+            $userInfo['userId']=$request->session()->get('userId');
+            $userInfo['username']=$request->session()->get('username');
+            $userInfo['asideToken']='account';
+            return view('users/history')->with('userInfo',$userInfo);
+        }
+    }
+
 }
