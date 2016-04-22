@@ -197,4 +197,15 @@ class CbeController extends Controller{
         }
     }
 
+    public function logistics(Request $request){
+        if(!$request->session()->has('userId')){
+            return view('user/login');
+        }else{
+            $userInfo['userId']=$request->session()->get('userId');
+            $userInfo['username']=$request->session()->get('username');
+            $userInfo['asideToken']='logistics';
+            return view('users/logistics')->with('userInfo',$userInfo);
+        }
+    }
+
 }

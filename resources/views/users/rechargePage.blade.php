@@ -14,17 +14,17 @@
             </ul>
 
             <div class="card-layout">
-                <span>账户余额：</span><strong class="money">￥30</strong><br/>
+                <span style="font-size: 30px">账户余额：</span><strong style="font-size: 30px; color: red">￥30</strong><br/><br/>
                 <form method="post" action="recharge">
-                    <span class="label">充值方式：</span>
+                    <span>充值方式：</span>
                     <select class="btn-info" name="type">
                         <option value="0">支付宝</option>
                         <option value="1">微信支付</option>
                         <option value="2">银行卡</option>
                     </select>
-                    <span class="label">充值金额：</span>
+                    <span style="margin-left: 30px">充值金额：</span>
                     <input type="text" name="money"/><label>元</label>
-                    <input type="submit" value="我要充值" />
+                    <input class="btn btn-info" type="submit" value="我要充值" style="margin-left: 30px" />
                 </form>
             </div>
 
@@ -50,7 +50,7 @@
                         </select>
                     </td>
                     <td>￥20</td>
-                    <td>充值成功</td>
+                    <td><span class="label label-success">充值成功</span></td>
                 </tr>
                 <tr>
                     <td>22222222</td>
@@ -63,7 +63,7 @@
                         </select>
                     </td>
                     <td>￥20</td>
-                    <td>充值成功</td>
+                    <td><span class="label label-success">充值成功</span></td>
                 </tr>
                 <tr>
                     <td>33333333</td>
@@ -76,7 +76,7 @@
                         </select>
                     </td>
                     <td>￥20</td>
-                    <td>充值成功</td>
+                    <td><span class="label label-success">充值成功</span></td>
                 </tr>
                 <tr>
                     <td>44444444</td>
@@ -89,7 +89,7 @@
                         </select>
                     </td>                    
                     <td>￥20</td>
-                    <td>充值成功</td>
+                    <td><span class="label label-success">充值成功</span></td>
                 </tr>
                 <tr>
                     <td>55555555</td>
@@ -102,7 +102,7 @@
                         </select>
                     </td>
                     <td>￥20</td>
-                    <td>充值成功</td>
+                    <td><span class="label label-success">充值成功</span></td>
                 </tr>
 
                 </tbody>

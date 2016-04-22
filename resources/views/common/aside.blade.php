@@ -33,7 +33,11 @@
                 </li>
 
                 <li class="bg-palette4">
-                    <a href="index.html">
+                    @if($userInfo['asideToken']=="logistics")
+                    <a href="logistics" style="color: white">
+                        @else
+                            <a href="logistics">
+                                @endif
 									<span class="menu-content block">
 										<span class="menu-icon"><i class="block fa fa-gift fa-lg"></i></span>
 										<span class="text m-left-sm">物流管理</span>
