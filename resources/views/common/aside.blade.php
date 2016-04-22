@@ -67,7 +67,12 @@
                         {{--<li><a href="dropzone.html"><span class="submenu-label">Dropzone</span></a></li>--}}
                     </ul>
                 </li>
-                <li class="openable bg-palette5">
+                @if($userInfo['asideToken']=="account")
+                <li class="openable bg-palette5 open">
+                @else
+                    <li class="openable bg-palette5">
+                        @endif
+
                     <a href="#">
 									<span class="menu-content block">
 										<span class="menu-icon"><i class="block fa fa-envelope fa-lg"></i></span>
@@ -79,7 +84,7 @@
 									</span>
                     </a>
                     <ul class="submenu bg-palette5">
-                        <li><a href="form_element.html"><span class="submenu-label">账户充值</span></a></li>
+                        <li><a href="rechargePage"><span class="submenu-label">账户充值</span></a></li>
                         <li><a href="form_validation.html"><span class="submenu-label">消费记录</span></a></li>
                         {{--<li><a href="dropzone.html"><span class="submenu-label">Dropzone</span></a></li>--}}
                     </ul>

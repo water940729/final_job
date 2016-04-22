@@ -162,6 +162,28 @@ class CbeController extends Controller{
             return redirect('/');
         }
 
-
     }
+
+    public function rechargePage(Request $request){
+        if(!$request->session()->has('userId')){
+            return view('users/login');
+        }else{
+            $userInfo['userId']=$request->session()->get('userId');
+            $userInfo['username']=$request->session()->get('username');
+            $userInfo['asideToken']='account';
+            return view('users/rechargePage')->with('userInfo',$userInfo);
+        }
+    }
+
+    public function recharge(Request $request){
+        if(!$request->session()->has('userId')){
+            return view('users/login');
+        }else{
+            $rechargeInfo['userId']=$request->session()->get('userId');
+            $rechargeInfo['type']=$request->type;
+            $rechargeInfo['money']=$request->money;
+            return $rechargeInfo;
+        }
+    }
+
 }
