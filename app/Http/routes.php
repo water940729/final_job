@@ -1,5 +1,6 @@
 <?php
 include"routeMa.php";
+include"routeShi.php";
 /*
 |--------------------------------------------------------------------------
 | Routes File
