@@ -86,10 +86,10 @@
                             <div class="li-item"><em class="scm li-ico ic5"></em>物流管理<span class="scm arrow"></span></div>
                             <dl>
                                 <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高级搜索<span class="scm dd-ar"></span></a>
+                                    <a href="#" class="dd-item">物流管理<span class="scm dd-ar"></span></a>
+                                    <ul class="ad-item-list">
+                                        <li class="J_menuItem" href="adminshipping" data-index="1">物流管理</li>
+									</ul>
                                 </dd>
                             </dl>
                         </li>

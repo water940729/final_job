@@ -75,6 +75,15 @@ Route::get("adminactcbe",[
 Route::get("admindelcbe",[
 		"uses"=>"AdminCbeController@del"
 		]);
+Route::get("adminshipping",[
+		"uses"=>"ShippingController@show"
+		]);
+Route::get("adminshipinstall",[
+		"uses"=>"ShippingController@install"
+		]);
+Route::get("adminshipuninstall",[
+		"uses"=>"ShippingController@uninstall"
+		]);
 /*测试用的路由*/
 Route::get("test",[
 		"uses"=>"AdminIndexController@test"
@@ -149,6 +158,15 @@ Route::get("admininfocbe",[
 		]);
 Route::get("adminactcbe",[
 		"uses"=>"AdminCbeController@active"
+		]);
+Route::get("adminshipping",[
+		"uses"=>"ShippingController@show"
+		]);
+Route::get("adminshipinstall",[
+		"uses"=>"ShippingController@install"
+		]);
+Route::get("adminshipuninstall",[
+		"uses"=>"ShippingController@uninstall"
 		]);
 Route::get("admindelcbe",[
 		"uses"=>"AdminCbeController@del"
