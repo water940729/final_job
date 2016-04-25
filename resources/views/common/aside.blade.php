@@ -47,7 +47,7 @@
 									</span>
                     </a>
                 </li>
-                @if($userInfo['asideToken']=="orderlist")
+                @if($userInfo['asideToken']=="orderlist"||$userInfo['asideToken']=="unfinished"||$userInfo['asideToken']=="finished")
                 <li class="openable bg-palette3 open">
                 @else
                     <li class="openable bg-palette3">
@@ -65,7 +65,7 @@
                     </a>
                     <ul class="submenu bg-palette3">
                         {{--<li><a href="form_element.html"><span class="submenu-label">企业信息管理</span></a></li>--}}
-                        <li><a href="unfinished"><span class="submenu-label">未完成订单</span></a></li>
+                        <li><a href="unfinished" ><span class="submenu-label" class ="active">未完成订单</span></a></li>
                         <li><a href="finished"><span class="submenu-label">已完成订单</span></a></li>
                         <li><a href="orderlist"><span class="submenu-label">全部订单</span></a></li>
                         {{--<li><a href="dropzone.html"><span class="submenu-label">Dropzone</span></a></li>--}}

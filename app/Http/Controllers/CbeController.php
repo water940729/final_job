@@ -8,6 +8,9 @@
 namespace App\Http\Controllers;
 use App\models\Cbe;
 use App\models\CbeAdmin;
+use App\models\CbeRecord;
+use App\models\Order;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -20,6 +23,15 @@ class CbeController extends Controller{
      * 是否使用手机验证码
      * 普通图片验证码
      */
+
+    public function __construct(Request $request)
+    {
+        //dd($request->session()->has('userId'));exit;
+        if($request->session()->has('userId')){
+            return redirect('/');
+        }
+        //dd($request->session()->has('userId'));exit;
+    }
 
     public function registe(Request $request){
         //dd($_POST);
@@ -110,30 +122,75 @@ class CbeController extends Controller{
 //		print_r($request->session()->has("admin_id"));
     }
 
-    public function test(Request $request){
-        //$request->session()->put('name',"mayunfei");
-       //$request->session()->put('name',"mayunfei");
-        dd($request->session()->all());
-
-
-    }
+//    public function test(Request $request){
+//        //$request->session()->put('name',"mayunfei");
+//       //$request->session()->put('name',"mayunfei");
+//8
+//        $userInfo['userId']=$request->session()->get('userId');
+//        $userInfo['username']=$request->session()->get('username');
+//        $userInfo['asideToken']="manager";
+//        $userInfo = Cbe::getUserInfo($userInfo['userId']);
+//        dd($userInfo);
+//
+//
+//    }
 
 
     public function orderList(Request $request){
+        $dir=explode("/",$request->getRequestUri());
+        end($dir);
+
+        $asideToken = array_pop($dir);
 
         if(!$request->session()->has('userId')){
             return redirect('/');
         }else{
             $userInfo['userId']=$request->session()->get('userId');
             $userInfo['username']=$request->session()->get('username');
-            $userInfo['asideToken']="orderlist";
+            $userInfo['asideToken']=$asideToken;
+            $data=$request->all();
+            if(isset($data['reservation'])){
+                $timeAyy = explode(" - ",$data['reservation']);
+                $startTime = strtotime($timeAyy[0]);
+                $endTime = strtotime($timeAyy[1])+86400;
+            }else{
+                $startTime =null;
+                $endTime = null;
+            }
+            if(isset($data['numQuery'])&&!empty($data['numQuery'])){
+                $num = $data['numQuery'];
+            }else{
+                $num=null;
+            }
+            //dd($startTime);
+            if($asideToken=="orderlist"){
+                $state=array();
+            }else if($asideToken=="unfinished"){
+                $state =array(3);
+            }else{
+                $state=array(1,2);
+            }
 
-            return view('users/list')->with('userInfo',$userInfo);
+            $orderList=Order::getOrderByCondition($request,$state,$num,$startTime,$endTime);
+            if(!empty($orderList)){
+                $logisticArr = Config::get('logistic.Logistic');
+                $payStateArr =Config::get('logistic.PayState');
+                //dd($logisticArr);
+                foreach($orderList as $key=>$value){
+                    if(!empty($value['log_id'])){
+                        $orderList[$key]['log_company']=$logisticArr[$value['log_id']];
+
+
+                    }
+                }
+            }
+            return view('users/list')->with('userInfo',$userInfo)->with('orderList',$orderList);
 
         }
 
 
     }
+
 
     public function users(Request $request){
         //dd($request->session()->has('userId'));exit;
@@ -157,7 +214,19 @@ class CbeController extends Controller{
             $userInfo['userId']=$request->session()->get('userId');
             $userInfo['username']=$request->session()->get('username');
             $userInfo['asideToken']="manager";
-            return view('users/space')->with('userInfo',$userInfo);
+            $userInfo = Cbe::getUserInfo($userInfo['userId']);
+            $userInfo['asideToken']="manager";
+            $userInfo['userId']=$request->session()->get('userId');
+            $userInfo['username']=$request->session()->get('username');
+
+
+            //dd($userInfo);
+            $ipInfo=CbeRecord::IpInfo($request,$userInfo['userId']);
+            foreach($ipInfo as $key=>$value){
+                $ipInfo[$key]['address']=self::getIpAddress($value['cbeLoginIP']);
+            }
+            $address = self::getIpAddress($ipInfo[1]['cbeLoginIP']);
+            return view('users/space')->with('userInfo',$userInfo)->with('address',$address)->with('ip',$ipInfo);
         }else{
             return redirect('/');
         }
@@ -208,4 +277,73 @@ class CbeController extends Controller{
         }
     }
 
+    public function infoEdit(Request $request){
+        $result =Cbe::infoEdit($request);
+        $message =array();
+        if($result==0){
+            $message['errno']='201';
+            $message['errmsg']="未修改";
+        }else if($result==1){
+            $message['errno']='200';
+            $message['errmsg']='修改成功';
+        }else{
+            $message['errno']='199';
+            $message['errmsg']='修改失败';
+        }
+        return $message;
+        //dd($data);
+
+    }
+    public function passEdit(Request $request){
+        $data = $request->all();
+
+        $result =Cbe::passEdit($request);
+        $message =array();
+        if($result==0){
+            $message['errno']='201';
+            $message['errmsg']="未修改";
+        }else if($result==1){
+            $message['errno']='200';
+            $message['errmsg']='修改成功';
+        }else if($result==-2){
+            $message['errno']='199';
+            $message['errmsg']='密码错误';
+        }else{
+            $message['errno']='198';
+            $message['errmsg']='修改失败';
+        }
+        return $message;
+
+    }
+
+    public static function getIpAddress($queryIP){
+        $queryIP="113.140.11.120";
+        $url = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip='.$queryIP;
+        $ch = curl_init($url);
+        //curl_setopt($ch,CURLOPT_ENCODING ,'utf8');
+        curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true) ; // 获取数据返回
+        $location = curl_exec($ch);
+        $location= json_decode($location);
+        if(is_numeric($location)&&$location==-2){
+            $loc ="本地";
+            return $loc;
+        }elseif(is_numeric($location)&&$location==-3){
+            $loc="未知";
+            return $loc;
+        }
+        //$location = json_decode($location);
+        curl_close($ch);
+
+        $loc = "";
+        if($location===FALSE) return "";
+        if (empty($location->desc)) {
+            $loc = $location->province."省".$location->city."市".$location->district.$location->isp;
+        }else{
+            $loc = $location->desc;
+        }
+        return $loc;
+
+
+    }
 }

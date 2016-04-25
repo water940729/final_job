@@ -22,6 +22,8 @@
 
     <!-- Simplify -->
     <link href="assets/css/simplify.min.css" rel="stylesheet">
+    <link href="assets/css/daterangepicker-bs3.css" rel="stylesheet" type="text/css" media="all">
+
 
 </head>
 <header class="top-nav">

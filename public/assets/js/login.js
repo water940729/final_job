@@ -49,6 +49,110 @@ $(function(){
 		});
 		return false;
 	});
+
+
+	$("#infoSave").click(function(){
+
+		var Code =$("#Code").val();
+		var phone =$("#phone").val();
+		var Account =$("#Account").val();
+		var url = document.getElementById("infoEdit").action;
+		var local = window.location.toString();
+		var t = $("#profileTab2").offset().top;
+
+		$.ajax({
+			type:"POST",
+			//url:"adminlogin",
+			url:""+url,
+			data:"&Account="+Account+"&Code="+Code+"&phone="+phone,
+			success:function(msg){
+				//alert(msg);
+				//console.log(msg);
+				if(msg.errno==200){
+					alert(msg.errmsg);
+					$(window).scrollTop(t);
+				}else{
+					alert(msg.errmsg);
+				}
+			}
+		});
+
+	});
+
+	$("#passSave").click(function(){
+
+		var Pass =$("#oldPass").val();
+		var newPass =$("#newPass").val();
+		var repeatPass =$("#repeatPass").val();
+		var url = document.getElementById("passEdit").action;
+		var local = window.location.toString();
+		var t = $("#passEdit").offset().top;
+		if(newPass!=repeatPass){
+			alert('两次密码不一致');
+			return false;
+		}else if (Pass == newPass){
+			alert('密码未修改');
+			return false;
+		}else if(Pass.length==0){
+			alert('密码不能为空');
+			return false;
+		}
+
+		$.ajax({
+			type:"POST",
+			//url:"adminlogin",
+			url:""+url,
+			data:"&Pass="+Pass+"&newPass="+newPass+"&repeatPass="+repeatPass,
+			success:function(msg){
+				//alert(msg);
+				//console.log(msg);
+				if(msg.errno==200){
+					alert(msg.errmsg);
+					$(window).scrollTop(t);
+					$("input[type=reset]").trigger("click");
+
+				}else{
+					alert(msg.errmsg);
+
+				}
+			}
+		});
+
+	});
+
+	$('#reservation').daterangepicker(null,
+		function(start, end, label) {
+			console.log(start.toISOString(), end.toISOString(), label);
+		});
+
+
+	//$("#query").click(function (){
+	//	var timeRange=$("#reservation").val();
+	//	var numQuery = $("#numQuery").val();
+	//	var url = document.getElementById("queryForm").action;
+    //
+    //
+	//	$.ajax({
+	//		type:"GET",
+	//		//url:"adminlogin",
+	//		url:""+url,
+	//		data:"&timeRange="+timeRange+"&numQuery="+numQuery,
+	//		success:function(msg){
+	//			window.location.reload();
+	//			//alert(msg);
+	//			//console.log(msg);
+	//			//if(msg.errno==200){
+	//			//	alert(msg.errmsg+msg.errno);
+	//			//	//$(window).scrollTop(t);
+	//			//	//$("input[type=reset]").trigger("click");
+     //           //
+	//			//}else{
+	//			//	alert(msg.errmsg);
+     //           //
+	//			//}
+	//		}
+	//	});
+	//});
 });
 
 

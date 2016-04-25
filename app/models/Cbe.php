@@ -5,6 +5,7 @@ namespace App\models;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Mockery\CountValidator\Exception;
 
 class Cbe extends Model
 {
@@ -81,6 +82,12 @@ class Cbe extends Model
 		}catch(ModelNotFoundException $e){
 			return -1;
 		}
+
+		$record = CbeRecord::recordIp($request,$result->id);
+		if($record==-1){
+			return -1;
+		}
+
 		return $result;
 	}
 
@@ -150,6 +157,73 @@ class Cbe extends Model
 	*/
 	public function info($id)
 	{
-		return self::where("id",$id)->first();
+		return self::where("id", $id)->first();
+	}
+
+	public static function getUserInfo($userId){
+		try{
+			$info = Cbe::where("id",$userId)
+				->get()->toArray();
+		}catch(Exception $e){
+			return -1;
+
+		}
+		return $info[0];
+	}
+
+
+	public static function infoEdit(Request $request){
+		$data = $request->all();
+		$cbe = new Cbe();
+		foreach($data as $key=>$value){
+			if($key!="phone"){
+			$key="cbe".$key;
+				$value = ($value=="未填写")?null:$value;
+			}
+			$info[$key]=$value;
+		}
+		try{
+			$result = $cbe
+				->where('id',$request->session()->get('userId'))
+				->update($info);
+
+		}catch(ModelNotFoundException $e){
+			return -1;
+		}
+
+		return $result;
+	}
+
+	public static function passEdit(Request $request){
+		$data = $request->all();
+		$cbe = new Cbe();
+		try{
+			$result=Cbe::where("id",$request->session()->get('userId'))
+				->where("cbePass",md5($data['Pass']))
+				->where('isalive','0')
+				//->get();
+				->firstOrFail();
+
+		}catch (ModelNotFoundException $e){
+			//dd($e->getMessage());
+			$result=-1;
+		}
+		//dd($result);
+		$info['cbePass']=md5($data['newPass']);
+
+		if($result!==-1){
+			try{
+				$rs = $cbe
+					->where('id',$request->session()->get('userId'))
+					->update($info);
+
+			}catch(ModelNotFoundException $e){
+				return -1;
+			}
+		}else{
+			return -2;
+		}
+		return $rs;
+
 	}
 }

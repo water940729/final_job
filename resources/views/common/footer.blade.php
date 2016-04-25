@@ -35,6 +35,14 @@
 
 <!-- Simplify -->
 <script src="assets/js/simplify/simplify.js"></script>
+<script src="assets/js/login.js"></script>
+<script src="assets/js/bootstrap-datetimepicker.js"></script>
+<script src="assets/js/moment.js"></script>
+{{--<script src="assets/js/jquery.min.js"></script>--}}
+<script src="assets/js/daterangepicker.js"></script>
+
+
+<script src="assets/js/bootstrap-datetimepicker.min.js"></script>
 
 <script>
     $(function()	{

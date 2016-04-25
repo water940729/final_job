@@ -37,9 +37,9 @@ Route::group(['middleware' => ['web']], function () {
 //   echo "1";
 //});
     Route::post('login', "CbeController@login");//登陆函数
-    Route::get('orderlist', 'CbeController@orderList');//全部订单
-    Route::get('finished', 'CbeController@orderList');//已完成订单
-    Route::get('unfinished', 'CbeController@orderList');//未完成订单
+    Route::any('orderlist', 'CbeController@orderList');//全部订单
+    Route::any('finished', 'CbeController@orderList');//已完成订单
+    Route::any('unfinished', 'CbeController@orderList');//未完成订单
 
     Route::post('/users/regist', "CbeController@registe");//注册函数
     Route::get('logout','CbeController@logout');//退出登陆
@@ -47,5 +47,8 @@ Route::group(['middleware' => ['web']], function () {
 //        echo "1";
 //    });//企业信息
     Route::get('userspace','CbeController@userSpace');
+    Route::get('test','CbeController@test');
+    Route::post('infoEdit','CbeController@infoEdit');
+    Route::post('passEdit','CbeController@passEdit');
 });
 //Route::post('users/regist')

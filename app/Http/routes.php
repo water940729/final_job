@@ -86,9 +86,9 @@ Route::get("adminshipuninstall",[
 		"uses"=>"ShippingController@uninstall"
 		]);
 /*测试用的路由*/
-Route::get("test",[
-		"uses"=>"AdminIndexController@test"
-		]);
+//Route::get("test",[
+//		"uses"=>"AdminIndexController@test"
+//		]);
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -175,4 +175,5 @@ Route::get("admindelcbe",[
 Route::get("test",[
 		"uses"=>"AdminIndexController@test"
 		]);
+
 });
