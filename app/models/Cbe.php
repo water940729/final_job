@@ -160,6 +160,22 @@ class Cbe extends Model
 		return self::where("id", $id)->first();
 	}
 
+	/**
+	 * 修改默认物流方式
+	 */
+	public function changeLogistics($changeInfo){
+		try{
+			$cbe=self::where("id",$changeInfo['userId'])
+				->first();
+			$cbe->cbeChoice=$changeInfo['chooseType'];
+			$cbe->cbeLogistics=$changeInfo['logisticsType'];
+			$cbe->save();
+		}catch(Exception $e){
+			return -1;
+		}
+		return 1;
+	}
+
 	public static function getUserInfo($userId){
 		try{
 			$info = Cbe::where("id",$userId)

@@ -10,6 +10,7 @@ use App\models\Cbe;
 use App\models\CbeAdmin;
 use App\models\CbeRecord;
 use App\models\Order;
+use App\models\Shipping;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
@@ -240,6 +241,7 @@ class CbeController extends Controller{
             $userInfo['userId']=$request->session()->get('userId');
             $userInfo['username']=$request->session()->get('username');
             $userInfo['asideToken']='account';
+            // 账户余额,支持的支付方式,充值记录(编号,时间,金额,状态)
             return view('users/rechargePage')->with('userInfo',$userInfo);
         }
     }
@@ -248,7 +250,10 @@ class CbeController extends Controller{
         if(!$request->session()->has('userId')){
             return view('users/login');
         }else{
-            $rechargeInfo['userId']=$request->session()->get('userId');
+            $userInfo['userId']=$request->session()->get('userId');
+            $userInfo['username']=$request->session()->get('username');
+            $userInfo['asideToken']='account';
+            // 充值方式,充值金额
             $rechargeInfo['type']=$request->type;
             $rechargeInfo['money']=$request->money;
             return $rechargeInfo;
@@ -262,6 +267,7 @@ class CbeController extends Controller{
             $userInfo['userId']=$request->session()->get('userId');
             $userInfo['username']=$request->session()->get('username');
             $userInfo['asideToken']='account';
+            // 订单编号,下单时间,物流公司,订单金额
             return view('users/history')->with('userInfo',$userInfo);
         }
     }
@@ -270,10 +276,28 @@ class CbeController extends Controller{
         if(!$request->session()->has('userId')){
             return view('user/login');
         }else{
-            $userInfo['userId']=$request->session()->get('userId');
-            $userInfo['username']=$request->session()->get('username');
+            $info = Cbe::getUserInfo($request->session()->get('userId'));
+            $userInfo['userId']=$info['id'];
+            $userInfo['username']=$info['cbeName'];
             $userInfo['asideToken']='logistics';
-            return view('users/logistics')->with('userInfo',$userInfo);
+            $userInfo['chooseType']=$info['cbeChoice'];
+            $userInfo['logisticsType']=$info['cbeLogistics'];
+            $shipping = new Shipping();
+            $logisticsList = $shipping->show();
+            return view('users/logistics')->with('userInfo',$userInfo)->with('logisticsList',$logisticsList);
+        }
+    }
+
+    public function changeLogistics(Request $request){
+        if(!$request->session()->has('userId')){
+            return view('user/login');
+        }else{
+            $changeInfo['userId']=$request->session()->get('userId');
+            $changeInfo['chooseType']=$request->chooseType;
+            $changeInfo['logisticsType']=$request->logisticsType;
+            $cbe = new Cbe();
+            $cbe->changeLogistics($changeInfo);
+            return redirect('logistics');
         }
     }
 
