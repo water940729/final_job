@@ -6,8 +6,11 @@
  * Time: 11:32
  */
 namespace App\Http\Controllers;
+use App\models\Account;
 use App\models\Cbe;
 use App\models\CbeAdmin;
+use App\models\CbePayment;
+use App\models\CbeRecharge;
 use App\models\CbeRecord;
 use App\models\Order;
 use App\models\Shipping;
@@ -238,11 +241,18 @@ class CbeController extends Controller{
         if(!$request->session()->has('userId')){
             return view('users/login');
         }else{
-            $userInfo['userId']=$request->session()->get('userId');
-            $userInfo['username']=$request->session()->get('username');
+            $info = Cbe::getUserInfo($request->session()->get('userId'));
+            $userInfo['userId']=$info['id'];
+            $userInfo['username']=$info['cbeName'];
             $userInfo['asideToken']='account';
-            // 账户余额,支持的支付方式,充值记录(编号,时间,金额,状态)
-            return view('users/rechargePage')->with('userInfo',$userInfo);
+            $userInfo['balance']=$info['cbeBalance'];
+            $payList = CbePayment::getAllPayment();
+            $rechargeList = CbeRecharge::getAllRechargeByUser($info['id']);
+            foreach ($rechargeList as $key=>$recharge) {
+                $pay = CbePayment::getPayNameById($recharge['pay_id']);
+                $rechargeList[$key]['pay_name'] = $pay['pay_name'];
+            }
+            return view('users/rechargePage')->with('userInfo',$userInfo)->with('payList',$payList)->with('rechargeList',$rechargeList);
         }
     }
 
@@ -250,13 +260,17 @@ class CbeController extends Controller{
         if(!$request->session()->has('userId')){
             return view('users/login');
         }else{
-            $userInfo['userId']=$request->session()->get('userId');
-            $userInfo['username']=$request->session()->get('username');
-            $userInfo['asideToken']='account';
-            // 充值方式,充值金额
-            $rechargeInfo['type']=$request->type;
-            $rechargeInfo['money']=$request->money;
-            return $rechargeInfo;
+            $rechargeInfo['cbe_id'] = $request->session()->get('userId');
+            $rechargeInfo['pay_id'] = $request->input('type');
+            $rechargeInfo['money'] = $request->input('money');
+            /****************************************
+             * 调用第三方支付接口
+             ****************************************/
+            $rechargeInfo['account_id'] = CbeRecharge::createRecharge($rechargeInfo);
+            Account::createRecharge($rechargeInfo);
+            Cbe::recharge($request);
+            
+            return redirect('rechargePage');
         }
     }
 
@@ -293,8 +307,8 @@ class CbeController extends Controller{
             return view('user/login');
         }else{
             $changeInfo['userId']=$request->session()->get('userId');
-            $changeInfo['chooseType']=$request->chooseType;
-            $changeInfo['logisticsType']=$request->logisticsType;
+            $changeInfo['chooseType']=$request->input('chooseType');
+            $changeInfo['logisticsType']=$request->input('logisticsType');
             $cbe = new Cbe();
             $cbe->changeLogistics($changeInfo);
             return redirect('logistics');
