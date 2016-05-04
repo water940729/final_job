@@ -14,8 +14,7 @@
  */
 
 
-$payment_lang ='/var/www/html/laravel/public/payment_desc/alipay.php';
-
+$payment_lang =getcwd().'/payment_desc/alipay.php';
 if (file_exists($payment_lang))
 {
     global $_LANG;

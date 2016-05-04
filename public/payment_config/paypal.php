@@ -14,7 +14,7 @@
  */
 
 
-$payment_lang = '/var/www/html/laravel/public/payment_desc/paypal.php';
+$payment_lang = getcwd().'/payment_desc/paypal.php';
 
 if (file_exists($payment_lang))
 {

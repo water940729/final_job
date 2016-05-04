@@ -14,7 +14,7 @@
  */
 
 
-$payment_lang = '/var/www/html/laravel/public/payment_desc/chinabank.php';
+$payment_lang = getcwd().'/payment_desc/chinabank.php';
 
 if (file_exists($payment_lang))
 {

@@ -14,7 +14,7 @@
  */
 
 
-$payment_lang = '/var/www/html/laravel/public/payment_desc/tenpayc2c.php';
+$payment_lang =getcwd().'/payment_desc/tenpayc2c.php';
 
 if (file_exists($payment_lang))
 {
