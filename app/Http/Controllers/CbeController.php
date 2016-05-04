@@ -176,19 +176,32 @@ class CbeController extends Controller{
             }
 
             $orderList=Order::getOrderByCondition($request,$state,$num,$startTime,$endTime);
+            //dd($orderList);
             if(!empty($orderList)){
-                $logisticArr = Config::get('logistic.Logistic');
+                //$logisticArr = Config::get('logistic.Logistic');
+                //Cbe::getLog($request);
+                $logisticArr = Shipping::getAllLog();
+                //dd($logisticArr);
+                //$payStateArr =
                 $payStateArr =Config::get('logistic.PayState');
                 //dd($logisticArr);
                 foreach($orderList as $key=>$value){
                     if(!empty($value['log_id'])){
-                        $orderList[$key]['log_company']=$logisticArr[$value['log_id']];
-
-
+                        //dd($value);
+                        //dd($logisticArr);
+                        foreach($logisticArr as $logs){
+                            if($logs['shipping_id']==$value['log_id']){
+                                $orderList[$key]['log_company']=$logs['shipping_name'];
+                                break;
+                            }
+                        }
+                        //$orderList[$key]['log_company']=$logisticArr[$value[]];
                     }
                 }
+            }else{
+                $logisticArr= array();
             }
-            return view('users/list')->with('userInfo',$userInfo)->with('orderList',$orderList);
+            return view('users/list')->with('userInfo',$userInfo)->with('orderList',$orderList)->with('ships',$logisticArr);
 
         }
 

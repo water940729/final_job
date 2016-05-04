@@ -255,4 +255,11 @@ class Cbe extends Model
         return 1;
     }
 
+	public static function getLog(Request $request){
+		$result = self::where('id',$request->session()->get('userId'))
+			->select('cbeChoice','cbeLogistics','cbeBalance')
+			->firstOrFail()
+			->toArray();
+
+	}
 }

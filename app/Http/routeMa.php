@@ -47,7 +47,7 @@ Route::group(['middleware' => ['web']], function () {
 //        echo "1";
 //    });//企业信息
     Route::get('userspace','CbeController@userSpace');
-    Route::get('test','CbeController@test');
+    Route::get('test2','CbeController@test');
     Route::post('infoEdit','CbeController@infoEdit');
     Route::post('passEdit','CbeController@passEdit');
 });

@@ -80,9 +80,9 @@
                             <td>
                                 <select class="btn-info">
                                     <option value="0">未选择</option>
-                                    <option value="1">圆通快递</option>
-                                    <option value="2">顺丰快递</option>
-                                    <option value="3">中通快递</option>
+                                    @foreach($ships as $ship)
+                                    <option value="{{$ship['shipping_id']}}">{{@$ship['shipping_name']}}</option>
+                                        @endforeach
                                 </select>
                             </td>
                             @else

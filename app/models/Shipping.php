@@ -77,4 +77,13 @@ class Shipping extends Model
 		}
 		return 1;
 	}
+
+
+	public static function getAllLog(){
+		$result =self::where('enabled',1)
+			->select('shipping_id','shipping_name')
+			->get()
+			->toArray();
+		return $result;
+	}
 }
