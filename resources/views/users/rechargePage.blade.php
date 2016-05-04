@@ -44,7 +44,7 @@
                     @foreach($rechargeList as $recharge)
                         <tr>
                             <td>{{strip_tags($recharge['pay_name'])}}</td>
-                            <td>{{$recharge['time']}}</td>
+                            <td>{{date('Y-m-d', $recharge['time'])}}</td>
                             <td>￥{{$recharge['money']}}</td>
                             @if($recharge['state']==1)
                                 <td>充值成功</td>
