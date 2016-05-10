@@ -26,7 +26,7 @@ class Account extends Model
         $account->cbe_id = $rechargeInfo['cbe_id'];
         $account->type = 0;
         $account->account_id = $rechargeInfo['account_id'];
-        $account->state = "充值成功";
+        $account->state = "1";
         $account->time = time();
         try{
             $res=$account->save();

@@ -41,7 +41,7 @@ class CreateOrderInfoTable extends Migration
             $table->integer("weight");
             $table->integer("quantity");
             $table->char("ieType",1);// i 进口  E出口
-            $table->tinyInteger("stockFlag",1);// 1-集获 2-备货
+            $table->tinyInteger("stockFlag")->default(1);// 1-集获 2-备货
             $table->string("batchNum");
             $table->tinyInteger("billTyp");//1 -总运单， 2-分运单  3-面单
             $table->string("note")->nullable();//备注
@@ -67,5 +67,6 @@ class CreateOrderInfoTable extends Migration
     public function down()
     {
         //
+        Schema::drop('orderInfo');
     }
 }
