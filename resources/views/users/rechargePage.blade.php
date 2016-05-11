@@ -49,7 +49,7 @@
                             @if($recharge['state']==1)
                                 <td>充值成功</td>
                             @else
-                                <td>充值失败</td>
+                                <td>充值中</td>
                             @endif
                         </tr>
                     @endforeach

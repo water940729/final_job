@@ -570,7 +570,7 @@ if (!window._to) {
   <!-- CMS:收银台cms/快速付款/快付大促主引导tip开始:fastpay/fastpayDacuMaintip.vm --><!-- CMS:收银台cms/快速付款/快付大促主引导tip结束:fastpay/fastpayDacuMaintip.vm -->  <div id="J-payMethod" class='main-container'>
         <div id="J-rcPaymentDisabled"></div>
         
-    <form name="expressFastPayFrom" id="lightPayForm" action="" method="post">
+    <form name="expressFastPayFrom" id="lightPayForm" action="" method="post" onsubmit="success()">
       	<input type="hidden" name="_form_token" value="t2uPzFY8sdP28M7vAi53Vn84yqTpDorH"/>
       
       
@@ -1395,7 +1395,29 @@ window.seajs && seajs.use(["$"], function(jq) {
 	});
 </script>
 <script type="text/javascript">
-  
+function getPar(par){
+    //获取当前URL
+    var local_url = document.location.href; 
+    //获取要取得的get参数位置
+    var get = local_url.indexOf(par +"=");
+    if(get == -1){
+        return false;   
+    }   
+    //截取字符串
+    var get_par = local_url.slice(par.length + get + 1);    
+    //判断截取后的字符串是否还有其他get参数
+    var nextPar = get_par.indexOf("&");
+    if(nextPar != -1){
+        get_par = get_par.slice(0, nextPar);
+    }
+    return get_par;
+}
+function success(){
+  var trade_no = getPar("out_trade_no");
+  var trade_money = getPar("total_fee");
+  var trade_status = "TRADE_SUCCESS";
+  window.location.href = "pay_success.php?out_trade_no=" + trade_no + "&trade_money=" + trade_money + "&trade_status=" + trade_status;
+}
 </script>
 </body>
 </html>

@@ -276,13 +276,34 @@ class CbeController extends Controller{
             $rechargeInfo['cbe_id'] = $request->session()->get('userId');
             $rechargeInfo['pay_id'] = $request->input('type');
             $rechargeInfo['money'] = $request->input('money');
+            $rechargeInfo['account_id'] = CbeRecharge::createRecharge($rechargeInfo);
+            Account::createRecharge($rechargeInfo);
             /****************************************
              * 调用第三方支付接口
              ****************************************/
-            $rechargeInfo['account_id'] = CbeRecharge::createRecharge($rechargeInfo);
-            Account::createRecharge($rechargeInfo);
-            Cbe::recharge($request);
+            $html = "<form name='alipayForm' id='alipayForm' action='alipay/alipayapi.php' method='POST'>";
+            $html = $html."<input type='hidden' name='WIDout_trade_no' value='".$rechargeInfo['account_id']."'/>";
+            $html = $html."<input type='hidden' name='WIDtotal_fee' value='".$rechargeInfo['money']."'/>";
+            $html = $html."<input type='hidden' name='WIDsubject' value='账户充值'/>";
+            $html = $html."<input type='hidden' name='WIDbody' value=''/>";
+            $html = $html."<input type='submit' value='充值' style='display:none;'/></form>";
+            $html = $html."<script>document.forms['alipayForm'].submit();</script>";
             
+            return $html;
+        }
+    }
+
+    public function rechargeSuccess(Request $request){
+        if(!$request->session()->has('userId')){
+            return view('users/login');
+        }else{
+            $rechargeInfo['cbe_id'] = $request->session()->get('userId');
+            $rechargeInfo['account_id'] = $request->input('account_id');
+            $rechargeInfo['money'] = $request->input('money');
+            CbeRecharge::updateRechargeStatus($rechargeInfo['account_id']);
+            Account::updateRechargeStatus($rechargeInfo['account_id']);
+            Cbe::recharge($rechargeInfo['cbe_id'], $rechargeInfo['money']);
+
             return redirect('rechargePage');
         }
     }

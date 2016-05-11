@@ -26,7 +26,7 @@ class Account extends Model
         $account->cbe_id = $rechargeInfo['cbe_id'];
         $account->type = 0;
         $account->account_id = $rechargeInfo['account_id'];
-        $account->state = "1";
+        $account->state = "0";
         $account->time = time();
         try{
             $res=$account->save();
@@ -38,6 +38,17 @@ class Account extends Model
         }else{
             return -1;
         }
+    }
+
+    public static function updateRechargeStatus($id) {
+        try {
+            $account = self::where("account_id", $id)->firstOrFail();
+            $account->state = "1";
+            $account->save();
+        } catch (Exception $e) {
+            return -1;
+        }
+        return 1;
     }
 
 }

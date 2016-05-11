@@ -33,7 +33,7 @@ class CbeRecharge extends Model
         $recharge->cbe_id = $rechargeInfo['cbe_id'];
         $recharge->pay_id = $rechargeInfo['pay_id'];
         $recharge->money = $rechargeInfo['money'];
-        $recharge->state = "1";
+        $recharge->state = "0";
         $recharge->time = time();
         try{
             $res=$recharge->save();
@@ -45,6 +45,17 @@ class CbeRecharge extends Model
         }else{
             return -1;
         }
+    }
+
+    public static function updateRechargeStatus($id) {
+        try {
+            $recharge = self::where('id', $id)->firstOrFail();
+            $recharge->state = "1";
+            $recharge->save();
+        } catch (Exception $e) {
+            return -1;
+        }
+        return 1;
     }
 
 }

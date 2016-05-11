@@ -243,11 +243,11 @@ class Cbe extends Model
 
 	}
 
-    public static function recharge(Request $request){
+    public static function recharge($cbeId, $money){
         try{
-            $cbe=self::where("id",$request->session()->get('userId'))
+            $cbe=self::where("id",$cbeId)
                 ->first();
-            $cbe->cbeBalance+=$request->input('money');
+            $cbe->cbeBalance+=$money;
             $cbe->save();
         }catch (Exception $e){
             return -1;
