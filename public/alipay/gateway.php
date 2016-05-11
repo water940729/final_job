@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="GBK">
+<meta charset="UTF-8">
 <title>支付宝 - 网上支付 安全快速！</title>
 <meta name="renderer" content="webkit" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
