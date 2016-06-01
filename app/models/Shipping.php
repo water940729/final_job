@@ -10,17 +10,13 @@ class Shipping extends Model
 {
 	protected $table="log";
 	public $timestamps=false;
-	public function show()
-	{
-		return self::all()->toArray();
-	}
 
 	//根据code查询
 	public function info($code)
 	{
 		try{
 			$result=self::where("shipping_code",$code)
-				->firstOrFail();
+			->firstOrFail();
 		}catch(ModelNotFoundException $e)
 		{
 			return -1;
@@ -31,7 +27,7 @@ class Shipping extends Model
 	public function get($code)
 	{
 		$result=self::where("shipping_code",$code)
-				->firstOrFail();
+		->firstOrFail();
 		return $result;
 	}
 
@@ -40,7 +36,7 @@ class Shipping extends Model
 	{
 		try{
 			self::where("shipping_code",$code)
-				->update(["enabled"=>1]);
+			->update(["enabled"=>1]);
 		}catch(Exception $e){
 			return -1;
 		}
@@ -62,15 +58,15 @@ class Shipping extends Model
 	public function uninstall($code)
 	{
 		self::where("shipping_code",$code)
-			->update(["enabled"=>0]);
+		->update(["enabled"=>0]);
 	}
 
 	public function hasInstall($code)
 	{
 		try{
 			$result=self::where("shipping_code",$code)
-				->where("enabled",1)
-				->firstOrFail();
+			->where("enabled",1)
+			->firstOrFail();
 		}catch(ModelNotFoundException $e)
 		{
 			return -1;
@@ -81,9 +77,9 @@ class Shipping extends Model
 
 	public static function getAllLog(){
 		$result =self::where('enabled',1)
-			->select('shipping_id','shipping_name')
-			->get()
-			->toArray();
+		->select('shipping_id','shipping_name')
+		->get()
+		->toArray();
 		return $result;
 	}
 }

@@ -331,7 +331,7 @@ class CbeController extends Controller{
             $userInfo['chooseType']=$info['cbeChoice'];
             $userInfo['logisticsType']=$info['cbeLogistics'];
             $shipping = new Shipping();
-            $logisticsList = $shipping->show();
+            $logisticsList = $shipping->getAllLog();
             return view('users/logistics')->with('userInfo',$userInfo)->with('logisticsList',$logisticsList);
         }
     }

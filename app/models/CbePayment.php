@@ -22,7 +22,7 @@ class CbePayment extends Model
     }
 
     public static function getAllPayment(){
-        return self::all()->toArray();
+        return self::where("enabled",1)->get()->toArray();
     }
 
     public static function getPayNameById($pay_id){
