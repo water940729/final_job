@@ -121,4 +121,9 @@ class OrderController extends Controller{
     public static function test(){
         return 13121021;
     }
+
+	public function list()
+	{
+		return view("order.list");
+	}
 }

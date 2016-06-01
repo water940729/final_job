@@ -205,10 +205,7 @@ class CbeController extends Controller{
                 $logisticArr= array();
             }
             return view('users/list')->with('userInfo',$userInfo)->with('orderList',$orderList)->with('ships',$logisticArr);
-
         }
-
-
     }
 
 
@@ -418,7 +415,67 @@ class CbeController extends Controller{
             $loc = $location->desc;
         }
         return $loc;
-
-
     }
+    public function orderShow(Request $request){
+
+        $dir=explode("/",$request->getRequestUri());
+        end($dir);
+
+        $asideToken = array_pop($dir);
+		$userInfo['userId']=$request->session()->get('userId');
+		$userInfo['username']=$request->session()->get('username');
+		$userInfo['asideToken']=$asideToken;
+		$data=$request->all();
+		if(isset($data['reservation'])){
+			$timeAyy = explode(" - ",$data['reservation']);
+			$startTime = strtotime($timeAyy[0]);
+			$endTime = strtotime($timeAyy[1])+86400;
+		}else{
+			$startTime =null;
+			$endTime = null;
+		}
+		//dd($data);
+		if(isset($data['num'])&&!empty($data['num'])){
+			$num = "cbe".str_pad($request->session()->get('userId'),4,"0",STR_PAD_LEFT).$data['num'];
+		}else{
+			$num=null;
+		}
+		//dd($startTime);
+		if($asideToken=="orderlist"){
+			$state=array();
+		}else if($asideToken=="unfinished"){
+			$state =array(3);
+		}else{
+			$state=array(1,2);
+		}
+
+		$orderList=Order::getOrderByCondition($request,$state,$num,$startTime,$endTime);
+		//dd($orderList);
+		if(!empty($orderList)){
+			//$logisticArr = Config::get('logistic.Logistic');
+			//Cbe::getLog($request);
+			$logisticArr = Shipping::getAllLog();
+			//dd($logisticArr);
+			//$payStateArr =
+			$payStateArr =Config::get('logistic.PayState');
+			//dd($logisticArr);
+			foreach($orderList as $key=>$value){
+				if(!empty($value['log_id'])){
+					//dd($value);
+					//dd($logisticArr);
+					foreach($logisticArr as $logs){
+						if($logs['shipping_id']==$value['log_id']){
+							$orderList[$key]['log_company']=$logs['shipping_name'];
+							break;
+						}
+					}
+					//$orderList[$key]['log_company']=$logisticArr[$value[]];
+				}
+			}
+		}else{
+			$logisticArr= array();
+		}
+		return view('order.show')->with('userInfo',$userInfo)->with('orderList',$orderList)->with('ships',$logisticArr);
+		print_r($orderList);
+	}
 }

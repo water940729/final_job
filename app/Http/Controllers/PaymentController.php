@@ -197,18 +197,18 @@ class PaymentController extends Controller
 						"value"=>trim($request->input("cfg_value")[$i])
 				);
 			}
+			$pay_config=serialize($pay_config);
 		}
-		$pay_config=serialize($pay_config);
 		$pay_fee=empty($request->input("pay_fee"))?0:$request->input("pay_fee");
 		$array['pay_code']=$request->input('pay_code');
 		$array['pay_name']=$request->input('pay_name');
 		$array['pay_desc']=$request->input('pay_desc');
-		$array['pay_config']=$pay_config;
+		$array['pay_config']=empty($pay_config)?"":$pay_config;
 		$array['is_cod']=0;
 		$array['pay_fee']=0;
 		$array['is_online']=0;
 
-//		print_r($array);
+		//print_r($array);
 		$adminPayment=new AdminPayment();
 		$adminPayment->install($array);
 		return redirect("adminpayment");

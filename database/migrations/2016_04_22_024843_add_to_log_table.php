@@ -14,7 +14,7 @@ class AddToLogTable extends Migration
     {
         //
 		Schema::table("log",function($table){
-				$table->increments("shipping_id");
+#$table->increments("shipping_id");
 				$table->string("shipping_code");
 				$table->string("shipping_name");
 				$table->string("shipping_desc");

@@ -172,6 +172,7 @@ Route::get("adminshipuninstall",[
 Route::get("admindelcbe",[
 		"uses"=>"AdminCbeController@del"
 		]);
+Route::any('adminorderlist', 'CbeController@orderShow');//全部订单
 Route::get("test",[
 		"uses"=>"AdminIndexController@test"
 		]);

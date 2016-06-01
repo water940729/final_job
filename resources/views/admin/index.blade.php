@@ -10,7 +10,7 @@
     <body>
     	<div id="admin">
     		<div class="ad-menu" id="ad-menu">
-                <div class="ad-logo"><img src="image/m-logo.png" height="103" width="130"></div>
+                <div class="ad-logo"></div>
                 <div class="ad-list">
                     <ul>
                         <li>
@@ -46,27 +46,9 @@
                             <div class="li-item"><em class="scm li-ico ic3"></em>订单管理<span class="scm arrow"></span></div>
                             <dl>
                                 <dd>
-                                    <a href="#" class="dd-item">校友高级管理<span class="scm dd-ar"></span></a>
+                                    <a href="#" class="dd-item">订单管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="index_v1.html" data-index="1">测试用例一</li>
-                                    </ul>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友查询<span class="scm dd-ar"></span></a>
-                                    <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="index_v1.html" data-index="1">测试用例一</li>
-                                    </ul>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友搜索<span class="scm dd-ar"></span></a>
-                                    <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="index_v1.html" data-index="1">测试用例一</li>
-                                    </ul>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">校友高输入<span class="scm dd-ar"></span></a>
-                                    <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="index_v1.html" data-index="1">测试用例一</li>
+                                        <li class="J_menuItem" href="adminorderlist" data-index="1">订单管理</li>
                                     </ul>
                                 </dd>
                             </dl>
@@ -101,7 +83,6 @@
                     <div class="ad-message">
                         <div class="ad-top-right">
                             <div class="ad-welcom">
-                                <div class="ad-wel-img"><img src="image/min_logo.png" height="36" width="36"></div>
                                 <div class="ad-wel-text">
                                     <div class="font-wel">欢迎您！<strong></strong></div>
                                     <div class="font-wel"><a href="adminlogout"><strong>【退出】</strong></a></div>

@@ -13,7 +13,7 @@ class CreateLogTable extends Migration
     public function up()
     {
         Schema::create('log', function (Blueprint $table) {
-#            $table->increments('id');
+            $table->increments('shipping_id');
 			$table->char("cbeLogName",10);
 			$table->char("cbeLogNo",10)->primary();
             $table->timestamps();

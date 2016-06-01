@@ -14,6 +14,26 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script>
 
+	$(function(){
+		$(".action").click(function(){
+			var href=$(this).attr("href");
+			var data=$(this).attr("data");
+			$.ajax({
+				method:"GET",
+				url:href,
+				data:"id="+data,
+				success:function(msg){
+					if(href=="adminactcbe"){
+						alert("激活成功");
+					}else{
+						alert("删除成功");
+					}
+					window.location.reload();
+				}
+			});
+			return false;
+		});
+	});
 //		$(document).on("mousewheel DOMMouseScroll", function (e) {
 ////			alert($("#content").attr("value"));
 //			var cur=$("#content").attr("value");
@@ -81,9 +101,9 @@
 				<td>
 					<a href="admininfocbe?id={{$th->id}}">详情</a>
 					@if($th->isalive==0)
-						<a href="adminactcbe?id={{$th->id}}">激活</a>
+						<a href="adminactcbe" data="{{$th->id}}" class="action">激活</a>
 					@else
-						<a href="admindelcbe?id={{$th->id}}">注销</a>
+						<a href="admindelcbe" data="{{$th->id}}" class="action">注销</a>
 					@endif
 				</td>
 			</tr>
