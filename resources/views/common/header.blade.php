@@ -77,7 +77,7 @@
             </ul>
 
             <a href="index.html" class="brand">
-                <i class="fa fa-database"></i><span class="brand-name">物流管理</span>
+                <i class="fa fa-database"></i><span class="brand-name">跨境电商物流管理平台</span>
             </a>
         </div>
         <div class="nav-container">

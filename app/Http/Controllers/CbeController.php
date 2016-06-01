@@ -15,6 +15,7 @@ use App\models\CbeRecord;
 use App\models\Order;
 use App\models\Shipping;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -126,7 +127,7 @@ class CbeController extends Controller{
 //		print_r($request->session()->has("admin_id"));
     }
 
-//    public function test(Request $request){
+    public function test(Request $request){
 //        //$request->session()->put('name',"mayunfei");
 //       //$request->session()->put('name',"mayunfei");
 //8
@@ -135,9 +136,10 @@ class CbeController extends Controller{
 //        $userInfo['asideToken']="manager";
 //        $userInfo = Cbe::getUserInfo($userInfo['userId']);
 //        dd($userInfo);
-//
-//
-//    }
+
+        //$rs = Cbe::getLog($request);
+
+    }
 
 
     public function orderList(Request $request){
@@ -161,8 +163,9 @@ class CbeController extends Controller{
                 $startTime =null;
                 $endTime = null;
             }
-            if(isset($data['numQuery'])&&!empty($data['numQuery'])){
-                $num = $data['numQuery'];
+            //dd($data);
+            if(isset($data['num'])&&!empty($data['num'])){
+                $num = "cbe".str_pad($request->session()->get('userId'),4,"0",STR_PAD_LEFT).$data['num'];
             }else{
                 $num=null;
             }

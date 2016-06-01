@@ -50,5 +50,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('test2','CbeController@test');
     Route::post('infoEdit','CbeController@infoEdit');
     Route::post('passEdit','CbeController@passEdit');
+    Route::any('orderDeal','OrderController@api');
 });
 //Route::post('users/regist')

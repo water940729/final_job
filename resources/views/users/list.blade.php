@@ -73,8 +73,8 @@
                 @if(isset($orderList)&&!empty($orderList))
                     @foreach($orderList as $order)
                         <tr>
-                            <td>{{$order['BookNo']}}</td>
                             <td>{{$order['num']}}</td>
+                            <td>{{$order['BookNo']}}</td>
                             <td>{{date("Y-m-d H:i:s",$order['time'])}}</td>
                             @if(empty($order['log_id']))
                             <td>

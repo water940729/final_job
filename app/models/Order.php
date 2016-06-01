@@ -5,6 +5,7 @@ namespace App\models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Mockery\CountValidator\Exception;
 use Illuminate\Support\Facades\DB;
 
@@ -66,27 +67,72 @@ class Order extends Model
         //$last_query = end($queries);
         //dd($orderList);
 
-        public static function orderCreate(Request $request,$data){
-            $this->cbe_id = $request->session()->get('userId');
-            $this->num = $data['num'];
-            $this->BookNo = $data['bookNo'];
-            $this->state = $data['state'];
-            $this->time = time();
-            $this->money = $data['money'];
-            $this->pay_id = $data['pay_id'];
-            $this->log_id = $data['log_id'];
 
-            try{
-                $ths->save();
-            }catch(ModelNotFoundException $e){
-                return -1;
+    public static function orderCreate(Request $request,$data){
+        //Log::info($data);
+        $query =self::orderExit($request,$data['order']['num']);
+        Log::info($query);
+        if(!$query){
+
+            DB::beginTransaction();
+            $rsOrder = Order::insert($data['order']);
+            Log::info($rsOrder);
+            $rsOrderInfo = OrderInfo::insert($data['orderInfo']);
+            if($rsOrder&&$rsOrderInfo){// 成功
+                DB::commit();
+                return true;
+
+            }else{
+                DB::rollback();
+                return false;
             }
 
-            return $this->id;
+        }else{
+            return false;
         }
-        public static function orderMotify(Request $request,$data){
 
+
+
+    }
+    public static function orderExit( Request $request,$num){
+        //Log::info($num);
+        try {
+            $rs = Order::where('num',$num)
+                ->get()
+                //->lists('id')
+                ->toArray();
+            //dd(DB::getQueryLog());
+
+        } catch (ModelNotFoundException $e) {
+            return false;
         }
+
+        if($rs){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public static function orderMotify(Request $request,$data){
+
+    }
+    public static function getMoney(Request $request,$id,$bookNo){
+        try {
+            $rs = Order::where('cbe_id',$id)
+                ->andWhere('BookNo',$bookNo)
+                ->select('log_id','money')
+                ->get()
+                //->lists('id')
+                ->toArray();
+            //dd(DB::getQueryLog());
+
+        } catch (ModelNotFoundException $e) {
+            return false;
+        }
+        return $rs;
+
+    }
+
 
     
 }

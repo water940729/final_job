@@ -5,6 +5,7 @@ namespace App\models;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Log;
 use Mockery\CountValidator\Exception;
 
 class Cbe extends Model
@@ -255,11 +256,19 @@ class Cbe extends Model
         return 1;
     }
 
-	public static function getLog(Request $request){
-		$result = self::where('id',$request->session()->get('userId'))
-			->select('cbeChoice','cbeLogistics','cbeBalance')
-			->firstOrFail()
+	public static function getLogistics(Request $request,$id){
+
+		$result = self::where('id',$id)
+			->select('cbeChoice','cbeLogistics','cbeBalance')->get()
+			//->firstOrFail()
 			->toArray();
+		//Log::info($result);
+		return $result[0];
+
+
+	}
+	public static function balanceDeal($money,$id){
+
 
 	}
 }
