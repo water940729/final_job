@@ -268,7 +268,15 @@ class Cbe extends Model
 
 	}
 	public static function balanceDeal($money,$id){
-
-
+		//$money = -$money;
+		$result =self::where('id',$id)
+		->decrement('cbeBalance',$money);
+		return $result;
+	}
+	public static function exits($id,$pass){
+		$result = self::where('id',$id)
+			->where('cbePass',md5($pass))
+			->findOrFail(1);
+		return $result;
 	}
 }

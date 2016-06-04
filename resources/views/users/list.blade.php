@@ -113,7 +113,7 @@
                             @endif
 
                     <td>
-                        <a href="#" class="btn-info">确认</a>
+                        <a href="testtest/{{$order['BookNo']}}"  id = "queren"class="btn-info">确认</a>
                         <a href="#" class="btn-info">编辑</a>
                     </td>
                 </tr>

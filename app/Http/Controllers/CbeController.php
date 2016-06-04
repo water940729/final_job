@@ -242,7 +242,12 @@ class CbeController extends Controller{
             foreach($ipInfo as $key=>$value){
                 $ipInfo[$key]['address']=self::getIpAddress($value['cbeLoginIP']);
             }
-            $address = self::getIpAddress($ipInfo[1]['cbeLoginIP']);
+            if(count($ipInfo)>=2){
+                $address = self::getIpAddress($ipInfo[1]['cbeLoginIP']);
+            }else{
+                $address = "";
+            }
+            //$address = self::getIpAddress($ipInfo[1]['cbeLoginIP']);
             return view('users/space')->with('userInfo',$userInfo)->with('address',$address)->with('ip',$ipInfo);
         }else{
             return redirect('/');

@@ -31,7 +31,12 @@
                         <div class="m-top-sm">
                             <div>
                                 <i class="fa fa-map-marker user-profile-icon"></i>
-                               上次登录：{{$address}}
+                               上次登录：
+                                @if(!empty($address))
+                                {{$address}}
+                                @else
+                                    无
+                                @endif
                             </div>
 
                             <div class="m-top-xs">

@@ -119,7 +119,7 @@ class Order extends Model
     public static function getMoney(Request $request,$id,$bookNo){
         try {
             $rs = Order::where('cbe_id',$id)
-                ->andWhere('BookNo',$bookNo)
+                ->where('BookNo',$bookNo)
                 ->select('log_id','money')
                 ->get()
                 //->lists('id')
@@ -131,6 +131,12 @@ class Order extends Model
         }
         return $rs;
 
+    }
+
+    public static function changeState(Request $request,$bookNo){
+        $rs = self::where('BookNo',$bookNo)
+        ->update(['state'=>3]);
+        return $rs;
     }
 
 
